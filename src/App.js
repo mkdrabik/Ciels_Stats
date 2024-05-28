@@ -1,8 +1,7 @@
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, Fragment } from "react"
 import './App.css';
 import { txtDB } from "./txtConfig";
-import v4 from "uuid"
-import { addDoc, collection, doc, setDoc } from "firebase/firestore";
+import {doc, setDoc } from "firebase/firestore";
 
 function App() {
   const[game, setGame] = useState({date: "", opponent: "", points: 0, rebounds: 0, assists: 0, steals: 0, blocks: 0, fouls: 0, win: ""})
@@ -24,7 +23,6 @@ function App() {
   
 //Handle Data Upload
 const handleUpload = async () =>{
-  const valRef= collection(txtDB, 'AAU')
   try{
     game.date.toString()
     await setDoc(doc(txtDB, "AAU", game.date.toString()), 
@@ -46,29 +44,17 @@ const handleUpload = async () =>{
 
 
   return (
-    <>
-    <input placeholder='How many points'
-    className = "new-item-form" 
-    type = 'number'
-    ref = {p}
-    onChange={handlePointChange}
-    />
+    <div>
+    <br></br><br></br>
+
+    <div class='hori'>
     <button
     class='btn' 
     onClick={e=>{
       filled()
-    }}
-      >
-      Submit
+    }}>Submit
     </button>
-
-    <br></br><br></br>
-    <input placeholder='How many rebounds'
-    className = "new-item-form"
-    type = 'number' 
-    ref = {r}
-    onChange={handleReboundChange}
-    />
+ 
     <button
     class='btn-clear' 
     onClick={e=>{
@@ -77,30 +63,53 @@ const handleUpload = async () =>{
       >
       Clear All
     </button>
+    </div>
+
+    <br></br><br></br>
+    <br></br><br></br>
+    
+    <div class='vert'>
+    <input placeholder='Points'
+    className = "new-item-form" 
+    type = 'number'
+    ref = {p}
+    onChange={handlePointChange}
+    />
+
+    <br></br><br></br>
+    <input placeholder='Rebounds'
+    className = "new-item-form"
+    type = 'number' 
+    ref = {r}
+    onChange={handleReboundChange}
+    />
 
     <br></br><br></br>
     <input
     className = "new-item-form" 
-    placeholder= 'How many assists'
+    placeholder= 'Assists'
     type = 'number'
     ref = {a}
     onChange={handleAssistChange}/>
     <br></br><br></br>
 
-    <input placeholder= 'How many steals'
+    <input placeholder= 'Steals'
     ref = {s}
+    className = "new-item-form"
     type = 'number'
     onChange={handleStealChange}/>
     <br></br><br></br>
 
-    <input placeholder='How many blocks'
+    <input placeholder='Blocks'
     ref = {b}
+    className = "new-item-form"
     type = 'number'
     onChange={handleBlockChange}/>
     <br></br><br></br>
 
-    <input placeholder='How many fouls'
+    <input placeholder='Fouls'
     ref = {f}
+    className = "new-item-form"
     type = 'number'
     onChange={handleFoulChange}/>
     <br></br><br></br>
@@ -108,23 +117,34 @@ const handleUpload = async () =>{
     <input placeholder='Win?'
     ref = {w}
     type = 'text'
+    className = "new-item-form"
     onChange={handleWinChange}/>
     <br></br><br></br>
 
     <input placeholder='Opponent?'
     ref = {o}
     type = 'text'
+    className = "new-item-form"
     onChange={handleOpponentChange}/>
     <br></br><br></br>
 
-    <input placeholder='Enter Timing Impact'
+    <input placeholder=''
     type = 'date'
     ref = {d}
+    className = "new-item-form"
     onChange={handleDateChange}/>
     <br></br><br></br>
-    </>
+    </div>
+    </div>
   );
   
+
+
+
+
+
+
+
 
 
 //Handle Data entry functions
@@ -156,6 +176,14 @@ const handleUpload = async () =>{
     setGame(g=> ({...game, opponent: e.target.value}))  
   }
   
+
+
+
+
+
+
+
+
 
 //Checks to see if all fields are filled then calls handle upload
   function filled(){

@@ -1,28 +1,6 @@
-.App {
-  text-align: center;
-}
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
 .App-link {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 * {
@@ -31,31 +9,43 @@
 }
 
 body {
-  background: #333;
-  color: hsl(200, 100%, 90%);
-  max-width: 400px;
+  background: linear-gradient(
+    90deg,
+    rgb(3, 3, 3) 0%,
+    rgba(248, 248, 248, 0.937) 100%
+  );
+  display: flex;
+  justify-content: center;
   padding: 1rem;
   margin: 0 auto;
 }
 
 
 .btn {
-  background: hsl(200, 100%, 50%, 0.1);
+  width: 200px;
+  font-size: 30px;
+  height: 50px;
+  background: rgb(39, 157, 216);
   border: 1px solid hsl(200, 100%, 50%);
-  color: hsl(200, 100%, 50%);
+  color: hsl(210, 8%, 95%);
   padding: 0.25em 0.5em;
   border-radius: 0.25em;
   cursor: pointer;
   outline: none;
+  font-weight: bold;
 }
 .btn-clear{
-  background: hsl(200, 100%, 50%, 0.1);
+  width: 200px;
+  font-size: 30px;
+  height: 50px;
+  background: hsla(0, 89%, 43%, 1);
   border: 1px solid hsl(0, 88%, 49%);
-  color: hsl(0, 88%, 49%);
+  color: hsl(0, 11%, 98%);
   padding: 0.25em 0.5em;
   border-radius: 0.25em;
   cursor: pointer;
   outline: none;
+  font-weight: bold;
 }
 
 .btn:hover,
@@ -68,14 +58,6 @@ body {
   background: hsl(0, 100%, 40%, 0.2);
 }
 
-.norm{
-  font-weight: normal;
-  margin-left: 10px;
-  font-size: 1rem;
-  flex-direction: row;
-  color: hsl(81, 70%, 50%);
-}
-
 .top {
   font-weight: bold;
   display: flex;
@@ -85,8 +67,25 @@ body {
 
 .new-item-form{
   outline: none;
-  border: 1px solid hsl(200, 100%, 40%);
+  width: 300px;
+  height: 50px;
+  font-size: 30px;
+  /*border: 1px solid hsl(200, 100%, 40%);*/
   border-radius: 0.25em;
   padding: 0.25em 0.5em;
   color: hsl(202, 85%, 3%);
 }
+
+.hori{
+ 
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.vert{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
