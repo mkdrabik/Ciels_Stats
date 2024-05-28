@@ -1,18 +1,6 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -35,4 +23,70 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background: #333;
+  color: hsl(200, 100%, 90%);
+  max-width: 400px;
+  padding: 1rem;
+  margin: 0 auto;
+}
+
+
+.btn {
+  background: hsl(200, 100%, 50%, 0.1);
+  border: 1px solid hsl(200, 100%, 50%);
+  color: hsl(200, 100%, 50%);
+  padding: 0.25em 0.5em;
+  border-radius: 0.25em;
+  cursor: pointer;
+  outline: none;
+}
+.btn-clear{
+  background: hsl(200, 100%, 50%, 0.1);
+  border: 1px solid hsl(0, 88%, 49%);
+  color: hsl(0, 88%, 49%);
+  padding: 0.25em 0.5em;
+  border-radius: 0.25em;
+  cursor: pointer;
+  outline: none;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  background: hsl(200, 100%, 50%, 0.2);
+}
+
+.btn-clear:hover,
+.btn-clear:focus-visible {
+  background: hsl(0, 100%, 40%, 0.2);
+}
+
+.norm{
+  font-weight: normal;
+  margin-left: 10px;
+  font-size: 1rem;
+  flex-direction: row;
+  color: hsl(81, 70%, 50%);
+}
+
+.top {
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  color: hsl(150, 20%, 98%);
+}
+
+.new-item-form{
+  outline: none;
+  border: 1px solid hsl(200, 100%, 40%);
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+  color: hsl(202, 85%, 3%);
 }
