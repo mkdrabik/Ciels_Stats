@@ -1,7 +1,8 @@
-import { useState, useEffect, useRef, Fragment } from "react"
+import { useState, useEffect, useRef} from "react"
 import './App.css';
-import { txtDB } from "./txtConfig";
+import { txtDB, auth} from "./txtConfig";
 import {doc, setDoc } from "firebase/firestore";
+import {signOut, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 function App() {
   const[game, setGame] = useState({date: "", opponent: "", points: 0, rebounds: 0, assists: 0, steals: 0, blocks: 0, fouls: 0, win: ""})
@@ -14,6 +15,7 @@ function App() {
   const b = useRef(0)
   const f = useRef(0)
   const w = useRef("")
+  const [signedIn, setsignedIn] = useState(false)
   var emp = true
 
   useEffect(()=>{
@@ -43,20 +45,63 @@ const handleUpload = async () =>{
 }
 
 
+const handleGoogle = async(e) =>{
+  const provider = await new GoogleAuthProvider();
+  provider.setCustomParameters({
+    prompt: "select_account"
+  });  
+  try{
+  signInWithPopup(auth, provider)
+  setsignedIn(true)
+  } catch(error){
+    alert("Not logged in")
+  }
+}
+
+const handleSo = async(e) =>{
+  try{
+    signOut(auth)
+    setsignedIn(false)
+  } catch(error){
+    alert("Still logged in")
+  }
+}
+
+
   return (
     <div>
     <br></br><br></br>
 
-    <div class='hori'>
+    <div className='hori'>
     <button
-    class='btn' 
+    className='btn' 
     onClick={e=>{
+     if(!signedIn){
+        alert("Sign in to log stats!")
+     }else{
       filled()
+     }
+      
     }}>Submit
+    </button>
+    <button
+    className='btn' 
+    onClick={e=>{
+      handleGoogle()
+    }}>Sign In
+    </button>
+
+    <button
+    className='btn-clear' 
+    onClick={e=>{
+      handleSo()
+    }}
+      >
+      Sign Out
     </button>
  
     <button
-    class='btn-clear' 
+    className='btn-clear' 
     onClick={e=>{
       clear()
     }}
@@ -68,7 +113,7 @@ const handleUpload = async () =>{
     <br></br><br></br>
     <br></br><br></br>
     
-    <div class='vert'>
+    <div className='vert'>
     <input placeholder='Points'
     className = "new-item-form" 
     type = 'number'
@@ -139,14 +184,6 @@ const handleUpload = async () =>{
   );
   
 
-
-
-
-
-
-
-
-
 //Handle Data entry functions
   function handlePointChange(e){
     setGame(g => ({...game, points: e.target.value}))
@@ -175,15 +212,6 @@ const handleUpload = async () =>{
   function handleOpponentChange(e){
     setGame(g=> ({...game, opponent: e.target.value}))  
   }
-  
-
-
-
-
-
-
-
-
 
 //Checks to see if all fields are filled then calls handle upload
   function filled(){
@@ -191,6 +219,7 @@ const handleUpload = async () =>{
     for (let key in game){
       if(game[key] === '' || game[key]=== null){
         emp = true
+        alert("Fill everything out")
         break
       }
     }
