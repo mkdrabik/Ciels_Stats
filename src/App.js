@@ -40,6 +40,11 @@ const handleUpload = async () =>{
   })
   alert("Data added successfully.")
 } catch(err){
+  if(err == "FirebaseError: [code=permission-denied]: Missing or insufficient permissions."){
+    alert("Contact Mason to log stats")
+  } else {
+    alert("Idk what happened")
+  }
   emp = true
 }
 }
@@ -51,19 +56,28 @@ const handleGoogle = async(e) =>{
     prompt: "select_account"
   });  
   try{
-  signInWithPopup(auth, provider)
+  await signInWithPopup(auth, provider)
+  alert("Logged in")
   setsignedIn(true)
   } catch(error){
-    alert("Not logged in")
+    alert("Error logging in")
+  }
+
+  try{
+    await setDoc(doc(txtDB, "users", auth.currentUser.displayName),
+  {"Email": auth.currentUser.email})
+  } catch(error){
+    alert("Error uploading user")
   }
 }
 
 const handleSo = async(e) =>{
   try{
     signOut(auth)
+    alert("Successfully signed out")
     setsignedIn(false)
   } catch(error){
-    alert("Still logged in")
+    alert("Not logged out!")
   }
 }
 
@@ -120,6 +134,7 @@ const handleSo = async(e) =>{
     ref = {p}
     onChange={handlePointChange}
     />
+
 
     <br></br><br></br>
     <input placeholder='Rebounds'
