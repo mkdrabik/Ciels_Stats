@@ -106,11 +106,10 @@ function App() {
   };
 
   return (
-    <section>
-      <form>
-        <br></br>
-        <br></br>
-
+    <body>
+      <br></br>
+      <br></br>
+      <div class="container">
         <button
           className="sub"
           onClick={(e) => {
@@ -132,8 +131,11 @@ function App() {
         >
           Clear All
         </button>
-        <br></br>
-        <br></br>
+      </div>
+
+      <br></br>
+      <br></br>
+      <div class="container">
         <button
           className="btn"
           onClick={(e) => {
@@ -151,12 +153,14 @@ function App() {
         >
           Sign Out
         </button>
+      </div>
 
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
 
+      <body className="bod">
         <input
           placeholder="Points"
           className="new-item-form"
@@ -164,7 +168,6 @@ function App() {
           ref={p}
           onChange={handlePointChange}
         />
-
         <br></br>
         <br></br>
         <input
@@ -174,7 +177,6 @@ function App() {
           ref={r}
           onChange={handleReboundChange}
         />
-
         <br></br>
         <br></br>
         <input
@@ -260,12 +262,8 @@ function App() {
           <option value="AAU">AAU</option>
           <option value="IHM">IHM</option>
         </select>
-
-        <br></br>
-        <br></br>
-        <br></br>
-      </form>
-    </section>
+      </body>
+    </body>
   );
 
   //Handle Data entry functions
