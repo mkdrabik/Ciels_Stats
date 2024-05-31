@@ -25,6 +25,8 @@ function App() {
   const b = useRef(0);
   const f = useRef(0);
   const w = useRef("");
+  const sea = useRef("");
+  const [season, setSeason] = useState("");
   const [signedIn, setsignedIn] = useState(false);
   var emp = true;
 
@@ -47,7 +49,7 @@ function App() {
   const handleUpload = async () => {
     try {
       game.date.toString();
-      await setDoc(doc(txtDB, "AAU", game.date.toString()), {
+      await setDoc(doc(txtDB, season, game.date.toString()), {
         Points: Number(game.points),
         Assists: Number(game.assists),
         Rebounds: Number(game.rebounds),
@@ -246,7 +248,14 @@ function App() {
         <br></br>
         <br></br>
 
-        <select required name="season" id="season" placeholder="">
+        <select
+          required
+          name="season"
+          id="season"
+          placeholder=""
+          onChange={handleSeasonChange}
+          ref={sea}
+        >
           <option value="">Which Season</option>
           <option value="AAU">AAU</option>
           <option value="IHM">IHM</option>
@@ -260,6 +269,11 @@ function App() {
   );
 
   //Handle Data entry functions
+  function handleSeasonChange() {
+    var e = document.getElementById("season");
+    var value = e.options[e.selectedIndex].value;
+    setSeason(value);
+  }
   function handlePointChange(e) {
     setGame((g) => ({ ...game, points: e.target.value }));
   }
@@ -319,6 +333,7 @@ function App() {
     d.current.value = "";
     w.current.value = "";
     o.current.value = "";
+    sea.current.value = "";
     setGame({
       points: 0,
       rebounds: 0,
@@ -329,6 +344,7 @@ function App() {
       win: "",
       opponent: "",
     });
+    setSeason("");
   }
 }
 
