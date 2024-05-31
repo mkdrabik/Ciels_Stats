@@ -19,50 +19,6 @@ body {
   margin: 0 auto;
 }
 
-.btn {
-  width: 200px;
-  font-size: 30px;
-  height: 50px;
-  background: rgb(39, 157, 216);
-  border: 1px solid hsl(200, 100%, 50%);
-  color: hsl(210, 8%, 95%);
-  padding: 0.25em 0.5em;
-  border-radius: 0.25em;
-  cursor: pointer;
-  outline: none;
-  font-weight: bold;
-}
-.btn-clear {
-  width: 200px;
-  font-size: 30px;
-  height: 50px;
-  background: hsla(0, 89%, 43%, 1);
-  border: 1px solid hsl(0, 88%, 49%);
-  color: hsl(0, 11%, 98%);
-  padding: 0.25em 0.5em;
-  border-radius: 0.25em;
-  cursor: pointer;
-  outline: none;
-  font-weight: bold;
-}
-
-.btn:hover,
-.btn:focus-visible {
-  background: hsl(200, 100%, 50%, 0.2);
-}
-
-.btn-clear:hover,
-.btn-clear:focus-visible {
-  background: hsl(0, 100%, 40%, 0.2);
-}
-
-.top {
-  font-weight: bold;
-  display: flex;
-  flex-direction: row;
-  color: hsl(150, 20%, 98%);
-}
-
 .new-item-form {
   width: 300px;
   height: 50px;
@@ -70,18 +26,6 @@ body {
   border-radius: 0.25em;
   padding: 0.25em 0.5em;
   color: hsl(202, 85%, 3%);
-}
-
-.hori {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
-
-.vert {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 input {
@@ -103,6 +47,7 @@ select {
   font-size: 30px;
   border-radius: 0.25em;
 }
+
 select:focus {
   outline: 5px solid #0bd5f8;
 }
@@ -114,4 +59,48 @@ select:invalid {
 ::placeholder {
   color: #999;
   opacity: 1;
+}
+
+button {
+  width: 200px;
+  font-size: 30px;
+  height: 50px;
+  cursor: pointer;
+  outline: none;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  border-radius: 0.25em;
+  color: hsl(0, 11%, 98%);
+}
+
+.btn {
+  background: rgb(39, 157, 216);
+  border: 1px solid hsl(200, 100%, 50%);
+}
+.sub {
+  background: rgb(39, 216, 66);
+  border: 1px solid hsl(144, 100%, 50%);
+}
+
+.btn-clear {
+  background: hsla(0, 89%, 43%, 1);
+  border: 1px solid hsl(0, 88%, 49%);
+}
+
+.btn:hover,
+.btn:focus-visible {
+  color: rgb(39, 157, 216);
+  background: hsl(210, 8%, 95%);
+}
+
+.sub:hover,
+.sub:focus-visible {
+  color: rgb(39, 216, 66);
+  background: hsl(210, 8%, 95%);
+}
+
+.btn-clear:hover,
+.btn-clear:focus-visible {
+  color: hsla(0, 89%, 43%, 1);
+  background: hsl(210, 8%, 95%);
 }

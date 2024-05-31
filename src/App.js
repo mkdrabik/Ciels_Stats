@@ -112,7 +112,7 @@ function App() {
         <br></br>
 
         <button
-          className="btn"
+          className="sub"
           onClick={(e) => {
             if (!signedIn) {
               alert("Sign in to log stats!");
@@ -132,7 +132,7 @@ function App() {
         >
           Clear All
         </button>
-
+        <br></br>
         <br></br>
         <button
           className="btn"
