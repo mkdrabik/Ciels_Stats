@@ -106,10 +106,12 @@ function App() {
   };
 
   return (
-    <body>
-      <br></br>
-      <br></br>
-      <div class="container">
+    <body class="container">
+      <div class="bod">
+        <h1 class="title">Form Options</h1>
+        <br></br>
+        <br></br>
+        <br></br>
         <button
           className="sub"
           onClick={(e) => {
@@ -122,45 +124,24 @@ function App() {
         >
           Submit
         </button>
-
+        <br></br>
+        <br></br>
+        <br></br>
         <button
           className="btn-clear"
           onClick={(e) => {
             clear();
           }}
         >
-          Clear All
+          Reset
         </button>
       </div>
 
-      <br></br>
-      <br></br>
-      <div class="container">
-        <button
-          className="btn"
-          onClick={(e) => {
-            handleGoogle();
-          }}
-        >
-          Sign In
-        </button>
-
-        <button
-          className="btn-clear"
-          onClick={(e) => {
-            handleSo();
-          }}
-        >
-          Sign Out
-        </button>
-      </div>
-
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-
-      <body className="bod">
+      <div className="bod">
+        <h1 class="title">Game</h1>
+        <br></br>
+        <br></br>
+        <br></br>
         <input
           placeholder="Points"
           className="new-item-form"
@@ -262,7 +243,32 @@ function App() {
           <option value="AAU">AAU</option>
           <option value="IHM">IHM</option>
         </select>
-      </body>
+      </div>
+      <div class="bod">
+        <h1 class="title">Account Options</h1>
+        <br></br>
+        <br></br>
+        <br></br>
+        <button
+          className="sub"
+          onClick={(e) => {
+            handleGoogle();
+          }}
+        >
+          Sign In
+        </button>
+        <br></br>
+        <br></br>
+        <br></br>
+        <button
+          className="btn-clear"
+          onClick={(e) => {
+            handleSo();
+          }}
+        >
+          Sign Out
+        </button>
+      </div>
     </body>
   );
 
