@@ -279,22 +279,46 @@ function App() {
     setSeason(value);
   }
   function handlePointChange(e) {
-    setGame((g) => ({ ...game, points: e.target.value }));
+    if (e.target.value >= 0) {
+      setGame((g) => ({ ...game, points: e.target.value }));
+    } else {
+      e.target.value = 0;
+    }
   }
   function handleReboundChange(e) {
-    setGame((g) => ({ ...game, rebounds: e.target.value }));
+    if (e.target.value >= 0) {
+      setGame((g) => ({ ...game, rebounds: e.target.value }));
+    } else {
+      e.target.value = 0;
+    }
   }
   function handleStealChange(e) {
-    setGame((g) => ({ ...game, steals: e.target.value }));
+    if (e.target.value >= 0) {
+      setGame((g) => ({ ...game, steals: e.target.value }));
+    } else {
+      e.target.value = 0;
+    }
   }
   function handleAssistChange(e) {
-    setGame((g) => ({ ...game, assists: e.target.value }));
+    if (e.target.value >= 0) {
+      setGame((g) => ({ ...game, assists: e.target.value }));
+    } else {
+      e.target.value = 0;
+    }
   }
   function handleBlockChange(e) {
-    setGame((g) => ({ ...game, blocks: e.target.value }));
+    if (e.target.value >= 0) {
+      setGame((g) => ({ ...game, blocks: e.target.value }));
+    } else {
+      e.target.value = 0;
+    }
   }
   function handleFoulChange(e) {
-    setGame((g) => ({ ...game, fouls: e.target.value }));
+    if (e.target.value >= 0) {
+      setGame((g) => ({ ...game, fouls: e.target.value }));
+    } else {
+      e.target.value = 0;
+    }
   }
   function handleWinChange(e) {
     setGame((g) => ({ ...game, win: e.target.value }));
