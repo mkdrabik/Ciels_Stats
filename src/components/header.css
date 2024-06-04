@@ -1,20 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Ysabeau+SC:wght@1..1000&display=swap");
 
-.h12 {
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 12px;
   background-color: rgb(16, 16, 17);
 }
 
-.h13 {
+.cname {
   font-family: "Dancing Script";
   color: rgb(184, 209, 252);
   text-decoration: none;
+  font-size: 55px;
   font-weight: bold;
-  padding: 10px 5%;
-  clip-path: block;
+  padding: 40px;
   text-align: center;
 }
 

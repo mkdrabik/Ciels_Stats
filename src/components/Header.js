@@ -4,8 +4,12 @@ import "./header.css";
 
 function Header() {
   return (
-    <div class="h12">
-      <h1 class="h13">Cecilia Drabik</h1>
+    <div class="header">
+      <h1>
+        <Link to="/about" className="cname">
+          Cecilia Drabik
+        </Link>
+      </h1>
       <nav class="navbar">
         <ul>
           <li>
