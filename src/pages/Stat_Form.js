@@ -5,7 +5,7 @@ import { doc, setDoc } from "firebase/firestore";
 import { signOut, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import Header from "../components/Header";
 
-function Stat_Form() {
+function StatForm() {
   const [game, setGame] = useState({
     date: "",
     opponent: "",
@@ -253,7 +253,7 @@ function Stat_Form() {
           <br></br>
           <br></br>
           <button
-            className="sub"
+            className="sub2"
             onClick={(e) => {
               handleGoogle();
             }}
@@ -264,7 +264,7 @@ function Stat_Form() {
           <br></br>
           <br></br>
           <button
-            className="btn-clear"
+            className="btn-clear2"
             onClick={(e) => {
               handleSo();
             }}
@@ -380,4 +380,4 @@ function Stat_Form() {
   }
 }
 
-export default Stat_Form;
+export default StatForm;

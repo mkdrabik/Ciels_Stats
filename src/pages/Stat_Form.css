@@ -1,6 +1,4 @@
-.App-link {
-  color: #61dafb;
-}
+@import url("https://fonts.googleapis.com/css2?family=Ysabeau+SC:wght@1..1000&display=swap");
 
 * {
   font-family: Arial, Helvetica, sans-serif;
@@ -8,17 +6,18 @@
 }
 
 .title {
+  font-family: "Ysabeau SC";
+  color: rgb(184, 209, 252);
   font-size: 50px;
   font-weight: bold;
   text-decoration-line: underline;
-  color: rgb(250, 217, 118);
 }
 
 .sbod {
-  background: linear-gradient(
+  background-image: linear-gradient(
     90deg,
     rgb(28, 27, 27) 0%,
-    rgba(60, 53, 53, 0.258) 100%
+    rgba(60, 53, 53, 0.25) 100%
   );
   display: flex;
   flex-direction: row;
@@ -58,7 +57,7 @@ input:invalid {
 }
 
 input:focus {
-  outline: 5px solid #0bd5f8;
+  outline: 5px solid rgb(184, 209, 252);
 }
 
 select {
@@ -71,7 +70,7 @@ select {
 }
 
 select:focus {
-  outline: 5px solid #0bd5f8;
+  outline: 5px solid rgb(184, 209, 252);
 }
 
 select:invalid {
@@ -96,13 +95,13 @@ button {
 }
 
 .sub {
-  background: rgb(39, 216, 66);
-  border: 1px solid hsl(144, 100%, 50%);
+  background: rgb(72, 217, 94);
+  border: 1px solid rgb(72, 217, 94);
 }
 
 .btn-clear {
-  background: hsla(0, 89%, 43%, 1);
-  border: 1px solid hsl(0, 88%, 49%);
+  background: rgb(206, 52, 52);
+  border: 1px solid rgb(206, 52, 52);
 }
 
 .btn:hover,
@@ -113,12 +112,32 @@ button {
 
 .sub:hover,
 .sub:focus-visible {
-  color: rgb(39, 216, 66);
+  color: rgb(72, 217, 94);
   background: hsl(210, 8%, 95%);
 }
 
 .btn-clear:hover,
 .btn-clear:focus-visible {
-  color: hsla(0, 89%, 43%, 1);
+  color: rgb(206, 52, 52);
   background: hsl(210, 8%, 95%);
+}
+
+.btn-clear2 {
+  background: rgb(66, 65, 65);
+  border: 1px solid rgb(236, 222, 222);
+}
+
+.btn-clear2:hover,
+.btn-clear2:focus-visible {
+  background: rgb(206, 52, 52);
+}
+
+.sub2 {
+  background: rgb(66, 65, 65);
+  border: 1px solid rgb(236, 222, 222);
+}
+
+.sub2:hover,
+.sub2:focus-visible {
+  background: rgb(72, 217, 94);
 }

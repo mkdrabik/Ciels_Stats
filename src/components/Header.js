@@ -9,14 +9,24 @@ function Header() {
       <nav class="navbar">
         <ul>
           <li>
-            <a>
+            <span>
               <Link to="/stat_form">Log Stats</Link>
-            </a>
+            </span>
           </li>
           <li>
-            <a>
+            <span>
+              <Link to="/stats">View Stats</Link>
+            </span>
+          </li>
+          <li>
+            <span>
+              <Link to="/media">Media</Link>
+            </span>
+          </li>
+          <li>
+            <span>
               <Link to="/about">About</Link>
-            </a>
+            </span>
           </li>
         </ul>
       </nav>

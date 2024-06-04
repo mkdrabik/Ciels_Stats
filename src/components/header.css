@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ysabeau+SC:wght@1..1000&display=swap");
 
 .h12 {
   display: flex;
@@ -9,11 +10,11 @@
 
 .h13 {
   font-family: "Dancing Script";
-  color: rgb(250, 217, 118);
+  color: rgb(184, 209, 252);
   text-decoration: none;
   font-weight: bold;
   padding: 10px 5%;
-  display: block;
+  clip-path: block;
   text-align: center;
 }
 
@@ -26,17 +27,17 @@
 }
 
 .navbar a {
-  color: rgb(250, 217, 118);
+  font-family: "Ysabeau SC";
+  color: rgb(184, 209, 252);
   text-decoration: none;
-  font-size: 24px;
+  font-size: 30px;
   font-weight: bold;
   padding: 15px;
-  display: block;
   text-align: center;
 }
 
 .navbar a:hover {
-  background-color: rgb(123, 123, 133);
+  color: rgb(254, 252, 252);
 }
 
 .navbar li {
