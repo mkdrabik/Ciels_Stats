@@ -109,8 +109,8 @@ function StatForm() {
   return (
     <body>
       <Header />
-      <body class="sbod">
-        <div class="bod">
+      <body class="overall">
+        <div class="col">
           <h1 class="title">Form Options</h1>
           <br></br>
           <br></br>
@@ -131,7 +131,7 @@ function StatForm() {
           <br></br>
           <br></br>
           <button
-            className="btn-clear"
+            className="reset"
             onClick={(e) => {
               clear();
             }}
@@ -140,14 +140,14 @@ function StatForm() {
           </button>
         </div>
 
-        <div className="bod">
+        <div className="col">
           <h1 class="title">Game</h1>
           <br></br>
           <br></br>
           <br></br>
           <input
             placeholder="Points"
-            className="new-item-form"
+            className="input-box"
             type="number"
             ref={p}
             onChange={handlePointChange}
@@ -156,7 +156,7 @@ function StatForm() {
           <br></br>
           <input
             placeholder="Rebounds"
-            className="new-item-form"
+            className="input-box"
             type="number"
             ref={r}
             onChange={handleReboundChange}
@@ -164,7 +164,7 @@ function StatForm() {
           <br></br>
           <br></br>
           <input
-            className="new-item-form"
+            className="input-box"
             placeholder="Assists"
             type="number"
             ref={a}
@@ -176,7 +176,7 @@ function StatForm() {
           <input
             placeholder="Steals"
             ref={s}
-            className="new-item-form"
+            className="input-box"
             type="number"
             onChange={handleStealChange}
           />
@@ -186,7 +186,7 @@ function StatForm() {
           <input
             placeholder="Blocks"
             ref={b}
-            className="new-item-form"
+            className="input-box"
             type="number"
             onChange={handleBlockChange}
           />
@@ -196,7 +196,7 @@ function StatForm() {
           <input
             placeholder="Fouls"
             ref={f}
-            className="new-item-form"
+            className="input-box"
             type="number"
             onChange={handleFoulChange}
           />
@@ -207,7 +207,7 @@ function StatForm() {
             placeholder="Win?"
             ref={w}
             type="text"
-            className="new-item-form"
+            className="input-box"
             onChange={handleWinChange}
           />
           <br></br>
@@ -217,7 +217,7 @@ function StatForm() {
             placeholder="Opponent?"
             ref={o}
             type="text"
-            className="new-item-form"
+            className="input-box"
             onChange={handleOpponentChange}
           />
           <br></br>
@@ -228,7 +228,7 @@ function StatForm() {
             placeholder=""
             type="date"
             ref={d}
-            className="new-item-form"
+            className="input-box"
             onChange={handleDateChange}
           />
           <br></br>
@@ -247,13 +247,13 @@ function StatForm() {
             <option value="IHM">IHM</option>
           </select>
         </div>
-        <div class="bod">
+        <div class="col">
           <h1 class="title">Account Options</h1>
           <br></br>
           <br></br>
           <br></br>
           <button
-            className="sub2"
+            className="si"
             onClick={(e) => {
               handleGoogle();
             }}
@@ -264,7 +264,7 @@ function StatForm() {
           <br></br>
           <br></br>
           <button
-            className="btn-clear2"
+            className="so"
             onClick={(e) => {
               handleSo();
             }}
