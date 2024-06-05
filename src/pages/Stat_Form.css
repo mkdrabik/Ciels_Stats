@@ -70,6 +70,15 @@ select:invalid {
   color: gray;
 }
 
+select :nth-child(1) {
+  color: gray;
+}
+
+select :nth-child(2),
+select :nth-child(3) {
+  color: black;
+}
+
 ::placeholder {
   color: #999;
   opacity: 1;
