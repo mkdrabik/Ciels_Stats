@@ -28,6 +28,7 @@ function StatForm() {
   const w = useRef("");
   const sea = useRef("");
   const [season, setSeason] = useState("");
+  const [win, setWin] = useState("");
   const [signedIn, setsignedIn] = useState(false);
   var emp = true;
 
@@ -203,13 +204,18 @@ function StatForm() {
           <br></br>
           <br></br>
 
-          <input
-            placeholder="Win?"
-            ref={w}
-            type="text"
-            className="input-box"
+          <select
+            required
+            name="outcome"
+            id="outcome"
+            placeholder=""
             onChange={handleWinChange}
-          />
+            ref={w}
+          >
+            <option value="">Outcome?</option>
+            <option value="Win">Win</option>
+            <option value="Loss">Loss</option>
+          </select>
           <br></br>
           <br></br>
 
@@ -282,6 +288,11 @@ function StatForm() {
     var value = e.options[e.selectedIndex].value;
     setSeason(value);
   }
+  function handleWinChange() {
+    var e = document.getElementById("outcome");
+    var value = e.options[e.selectedIndex].value;
+    setGame((g) => ({ ...game, win: value }));
+  }
   function handlePointChange(e) {
     if (e.target.value >= 0) {
       setGame((g) => ({ ...game, points: e.target.value }));
@@ -324,9 +335,12 @@ function StatForm() {
       e.target.value = 0;
     }
   }
+  /*
   function handleWinChange(e) {
     setGame((g) => ({ ...game, win: e.target.value }));
   }
+  */
+
   function handleDateChange(e) {
     setGame((g) => ({ ...game, date: e.target.value }));
   }
@@ -377,6 +391,7 @@ function StatForm() {
       opponent: "",
     });
     setSeason("");
+    setWin("");
   }
 }
 
