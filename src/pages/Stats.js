@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Stat_Form.css";
 import Header from "../components/Header";
-import { txtDB } from "./txtConfig";
+import { txtDB, auth } from "./txtConfig";
 import { collection, getDocs, limit, orderBy, query } from "firebase/firestore";
 
 function Stats() {
@@ -9,13 +9,28 @@ function Stats() {
   const [wins, setWins] = useState([]);
 
   async function qC() {
-    const colRef = collection(txtDB, "IHM");
-    const q = await query(colRef, orderBy("Points", "asc"), limit(5));
-    const games = await getDocs(q);
-    games.forEach((game) => {
-      setPts((p) => [...p, game.data().Points]);
-      setWins((w) => [...w, game.data().Win]);
-    });
+    try {
+      if (auth.currentUser != null) {
+        const colRef = collection(txtDB, "IHM");
+        const q = await query(colRef, orderBy("Points", "asc"), limit(5));
+        const games = await getDocs(q);
+        games.forEach((game) => {
+          setPts((p) => [...p, game.data().Points]);
+          setWins((w) => [...w, game.data().Win]);
+        });
+      } else {
+        alert("Provide Gmail to view stats");
+      }
+    } catch (err) {
+      if (
+        err ===
+        "FirebaseError: [code=permission-denied]: Missing or insufficient permissions."
+      ) {
+        alert("Provide Gmail to view stats");
+      } else {
+        alert("Idk what happened lmao");
+      }
+    }
   }
 
   return (
@@ -29,6 +44,13 @@ function Stats() {
         Stats
       </button>
       <br></br>
+      <button
+        onClick={(e) => {
+          clear();
+        }}
+      >
+        clear
+      </button>
       <br></br>
       <ol>
         {pts.map((p) => (
@@ -41,14 +63,6 @@ function Stats() {
           <li>{w}</li>
         ))}
       </ol>
-
-      <button
-        onClick={(e) => {
-          clear();
-        }}
-      >
-        clear
-      </button>
     </div>
   );
 
