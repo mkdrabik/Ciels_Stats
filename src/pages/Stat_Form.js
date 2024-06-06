@@ -300,6 +300,9 @@ function StatForm() {
       e.target.value = 0;
     }
   }
+  function handleDateChange(e, game) {
+    setGame((g) => ({ ...game, date: e.target.value }));
+  }
   function handleReboundChange(e) {
     if (e.target.value >= 0) {
       setGame((g) => ({ ...game, rebounds: e.target.value }));
@@ -335,15 +338,7 @@ function StatForm() {
       e.target.value = 0;
     }
   }
-  /*
-  function handleWinChange(e) {
-    setGame((g) => ({ ...game, win: e.target.value }));
-  }
-  */
 
-  function handleDateChange(e) {
-    setGame((g) => ({ ...game, date: e.target.value }));
-  }
   function handleOpponentChange(e) {
     setGame((g) => ({ ...game, opponent: e.target.value }));
   }
