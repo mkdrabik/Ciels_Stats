@@ -12,10 +12,12 @@ function Stats() {
     return JSON.parse(lv);
   });
 
+  //every time games changes local storage is updated
   useEffect(() => {
     localStorage.setItem("GAMES", JSON.stringify(games));
   }, [games]);
 
+  //gets games ordered by points; more queries to come
   async function qC() {
     if (games.length === 0) {
       try {
@@ -107,6 +109,7 @@ function Stats() {
     </div>
   );
 
+  //resets local storage and games array
   function clear() {
     localStorage.setItem("GAMES", []);
     setGames([]);
