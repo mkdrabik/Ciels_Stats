@@ -18,14 +18,3 @@ const txtDB = getFirestore(app);
 const auth = getAuth();
 
 export { txtDB, auth };
-
-/*
-
-          <input
-            placeholder="Win?"
-            ref={w}
-            type="text"
-            className="input-box"
-            onChange={handleWinChange}
-          />
-          */

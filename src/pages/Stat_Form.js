@@ -32,6 +32,7 @@ function StatForm() {
   const [signedIn, setsignedIn] = useState(false);
   var emp = true;
 
+  //Resets form whenever page is refreshed
   useEffect(() => {
     setGame({
       points: 0,
@@ -69,12 +70,14 @@ function StatForm() {
       ) {
         alert("Contact Mason to log stats");
       } else {
+        console.log(err);
         alert("Idk what happened");
       }
       emp = true;
     }
   };
 
+  //Handles logging in with Google Account
   const handleGoogle = async (e) => {
     const provider = await new GoogleAuthProvider();
     provider.setCustomParameters({
@@ -97,6 +100,7 @@ function StatForm() {
     }
   };
 
+  //Logs the user out of Google account
   const handleSo = async (e) => {
     try {
       signOut(auth);
@@ -282,7 +286,7 @@ function StatForm() {
     </body>
   );
 
-  //Handle Data entry functions
+  //Functions to edit game item
   function handleSeasonChange() {
     var e = document.getElementById("season");
     var value = e.options[e.selectedIndex].value;
@@ -300,8 +304,9 @@ function StatForm() {
       e.target.value = 0;
     }
   }
-  function handleDateChange(e, game) {
+  function handleDateChange(e) {
     setGame((g) => ({ ...game, date: e.target.value }));
+    console.log(e.target.value);
   }
   function handleReboundChange(e) {
     if (e.target.value >= 0) {
