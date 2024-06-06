@@ -137,3 +137,7 @@ button {
 .si:focus-visible {
   background: rgb(72, 217, 94);
 }
+
+li {
+  color: black;
+}
