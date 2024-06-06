@@ -19,12 +19,10 @@ td {
 }
 
 th {
-  /* background-color: rgb(117, 201, 250);*/
   background-color: rgb(184, 209, 252);
 }
 
 td {
-  /* background-color: rgb(205, 235, 253);*/
   background-color: rgb(214, 214, 214);
 }
 
@@ -40,4 +38,15 @@ form td:last-child {
 
 form * {
   font-size: 28px;
+}
+
+button {
+  color: rgb(184, 209, 252);
+  background-color: white;
+  border: 3px solid #000405;
+}
+
+button:hover {
+  background-color: rgb(184, 209, 252);
+  color: white;
 }

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./Stat_Form.css";
+
 import "./Stats.css";
 import Header from "../components/Header";
 import { txtDB, auth } from "./txtConfig";
@@ -60,6 +60,7 @@ function Stats() {
   return (
     <div>
       <Header />
+      <br></br>
       <button
         onClick={(e) => {
           qC();
@@ -68,12 +69,13 @@ function Stats() {
         Stats
       </button>
       <br></br>
+      <br></br>
       <button
         onClick={(e) => {
           clear();
         }}
       >
-        clear
+        Clear
       </button>
       <br></br>
       <div className="app-container">
