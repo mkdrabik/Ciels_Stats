@@ -25,9 +25,14 @@ function Stats() {
           const data = await getDocs(q);
           data.forEach((g) => {
             const game = {
-              opponent: g.data().Opponent,
               points: g.data().Points,
+              rebounds: g.data().Rebounds,
+              assists: g.data().Assists,
+              steals: g.data().Steals,
+              blocks: g.data().Blocks,
+              fouls: g.data().Fouls,
               win: g.data().Win,
+              opponent: g.data().Opponent,
             };
             setGames((ga) => [...ga, game]);
           });
@@ -74,14 +79,24 @@ function Stats() {
           <thead>
             <tr>
               <th>Points</th>
-              <th>Opponent</th>
+              <th>Rebounds</th>
+              <th>Assists</th>
+              <th>Steals</th>
+              <th>Blocks</th>
+              <th>Fouls</th>
               <th>Win</th>
+              <th>Opponent</th>
             </tr>
           </thead>
           <tbody>
             {games.map((g) => (
               <tr>
                 <td>{g.points}</td>
+                <td>{g.rebounds}</td>
+                <td>{g.assists}</td>
+                <td>{g.steals}</td>
+                <td>{g.blocks}</td>
+                <td>{g.fouls}</td>
                 <td>{g.opponent}</td>
                 <td>{g.win}</td>
               </tr>
