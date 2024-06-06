@@ -70,7 +70,6 @@ function StatForm() {
       ) {
         alert("Contact Mason to log stats");
       } else {
-        console.log(err);
         alert("Idk what happened");
       }
       emp = true;

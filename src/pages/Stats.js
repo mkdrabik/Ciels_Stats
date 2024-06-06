@@ -1,35 +1,52 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Stat_Form.css";
+import "./Stats.css";
 import Header from "../components/Header";
 import { txtDB, auth } from "./txtConfig";
 import { collection, getDocs, limit, orderBy, query } from "firebase/firestore";
 
 function Stats() {
-  const [pts, setPts] = useState([]);
-  const [wins, setWins] = useState([]);
+  const [games, setGames] = useState(() => {
+    const lv = localStorage.getItem("GAMES");
+    if (lv == null) return [];
+    return JSON.parse(lv);
+  });
+
+  useEffect(() => {
+    localStorage.setItem("GAMES", JSON.stringify(games));
+  }, [games]);
 
   async function qC() {
-    try {
-      if (auth.currentUser != null) {
-        const colRef = collection(txtDB, "IHM");
-        const q = await query(colRef, orderBy("Points", "asc"), limit(5));
-        const games = await getDocs(q);
-        games.forEach((game) => {
-          setPts((p) => [...p, game.data().Points]);
-          setWins((w) => [...w, game.data().Win]);
-        });
-      } else {
-        alert("Provide Gmail to view stats");
+    if (games.length === 0) {
+      try {
+        if (auth.currentUser != null) {
+          const colRef = collection(txtDB, "IHM");
+          const q = await query(colRef, orderBy("Points", "asc"), limit(2));
+          const data = await getDocs(q);
+          data.forEach((g) => {
+            const game = {
+              opponent: g.data().Opponent,
+              points: g.data().Points,
+              win: g.data().Win,
+            };
+            setGames((ga) => [...ga, game]);
+          });
+        } else {
+          alert("Provide Gmail to view stats");
+        }
+      } catch (err) {
+        if (
+          err ===
+          "FirebaseError: [code=permission-denied]: Missing or insufficient permissions."
+        ) {
+          alert("Provide Gmail to view stats");
+        } else {
+          alert("Idk what happened lmao");
+          console.log(err);
+        }
       }
-    } catch (err) {
-      if (
-        err ===
-        "FirebaseError: [code=permission-denied]: Missing or insufficient permissions."
-      ) {
-        alert("Provide Gmail to view stats");
-      } else {
-        alert("Idk what happened lmao");
-      }
+    } else {
+      alert("Up to date");
     }
   }
 
@@ -52,23 +69,32 @@ function Stats() {
         clear
       </button>
       <br></br>
-      <ol>
-        {pts.map((p) => (
-          <li>{p}</li>
-        ))}
-      </ol>
-
-      <ol>
-        {wins.map((w) => (
-          <li>{w}</li>
-        ))}
-      </ol>
+      <div className="app-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Points</th>
+              <th>Opponent</th>
+              <th>Win</th>
+            </tr>
+          </thead>
+          <tbody>
+            {games.map((g) => (
+              <tr>
+                <td>{g.points}</td>
+                <td>{g.opponent}</td>
+                <td>{g.win}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 
   function clear() {
-    setWins([]);
-    setPts([]);
+    localStorage.setItem("GAMES", []);
+    setGames([]);
   }
 }
 
