@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import "./Stats.css";
 import Header from "../components/Header";
@@ -12,18 +12,34 @@ function Stats() {
     return JSON.parse(lv);
   });
 
+  const [season, setSeason] = useState("");
+  const [filter, setFilter] = useState("");
+  const [number, setNumber] = useState(0);
+  const n = useRef("");
+  const se = useRef("");
+  const fil = useRef("");
   //every time games changes local storage is updated
   useEffect(() => {
     localStorage.setItem("GAMES", JSON.stringify(games));
   }, [games]);
 
+  useEffect(() => {
+    localStorage.setItem("SEASON", season.toString());
+    alert(localStorage.getItem("SEASON"));
+  }, [season]);
+
   //gets games ordered by points; more queries to come
   async function qC() {
-    if (games.length === 0) {
+    alert(localStorage.getItem("SEASON"));
+    if (lsl() !== Number(number) || season !== lss()) {
       try {
         if (auth.currentUser != null) {
-          const colRef = collection(txtDB, "IHM");
-          const q = await query(colRef, orderBy("Points", "asc"), limit(2));
+          const colRef = collection(txtDB, season);
+          const q = await query(
+            colRef,
+            orderBy(filter, "asc"),
+            limit(Number(2))
+          );
           const data = await getDocs(q);
           data.forEach((g) => {
             const game = {
@@ -49,7 +65,6 @@ function Stats() {
           alert("Provide Gmail to view stats");
         } else {
           alert("Idk what happened lmao");
-          console.log(err);
         }
       }
     } else {
@@ -58,25 +73,70 @@ function Stats() {
   }
 
   return (
-    <div>
+    <body className="body2">
       <Header />
       <br></br>
-      <button
-        onClick={(e) => {
-          qC();
-        }}
-      >
-        Stats
-      </button>
-      <br></br>
-      <br></br>
-      <button
-        onClick={(e) => {
-          clear();
-        }}
-      >
-        Clear
-      </button>
+      <div className="row-container">
+        <select
+          required
+          name="season"
+          id="season"
+          placeholder=""
+          onChange={handleSeasonChange}
+          ref={se}
+        >
+          <option value="">Which Season</option>
+          <option value="AAU">AAU</option>
+          <option value="IHM">IHM</option>
+        </select>
+        <select
+          required
+          name="filter"
+          id="filter"
+          placeholder=""
+          onChange={handleFilterChange}
+          ref={fil}
+        >
+          <option value="">Filter By</option>
+          <option value="Points">Points</option>
+          <option value="Win">Win</option>
+          <option value="Opponent">Opponent</option>
+        </select>
+        <input
+          placeholder="# of Games"
+          className="input-box"
+          type="number"
+          ref={n}
+          onChange={handleNumChange}
+        />
+        <button
+          className="button2"
+          onClick={(e) => {
+            filled();
+          }}
+        >
+          Get Stats
+        </button>
+        <br></br>
+        <br></br>
+        <button
+          className="button2"
+          onClick={(e) => {
+            clear();
+          }}
+        >
+          Clear Data
+        </button>
+
+        <button
+          className="button2"
+          onClick={(e) => {
+            cf();
+          }}
+        >
+          Clear Form
+        </button>
+      </div>
       <br></br>
       <div className="app-container">
         <table>
@@ -108,13 +168,70 @@ function Stats() {
           </tbody>
         </table>
       </div>
-    </div>
+    </body>
   );
+
+  //handles changes of pickers
+  function handleSeasonChange() {
+    var e = document.getElementById("season");
+    var value = e.options[e.selectedIndex].value;
+    setSeason(value);
+  }
+
+  function handleFilterChange() {
+    var e = document.getElementById("filter");
+    var value = e.options[e.selectedIndex].value;
+    setFilter(value);
+  }
+
+  function handleNumChange(e) {
+    if (e.target.value >= 0) {
+      setNumber(e.target.value);
+    } else {
+      e.target.value = 0;
+    }
+  }
+
+  //checks to see number of games in Local Storage
+  function lsl() {
+    const lv = localStorage.getItem("GAMES");
+    if (lv === null) return 0;
+    const temp = JSON.parse(lv);
+    return temp.length;
+  }
+
+  //checks to see current season of Locally Stored Games
+  function lss() {
+    const lv = localStorage.getItem("SEASON");
+    if (lv === null || lv === "") {
+      alert("BLANK");
+      return "";
+    }
+    return lv;
+  }
 
   //resets local storage and games array
   function clear() {
-    localStorage.setItem("GAMES", []);
+    setSeason("");
     setGames([]);
+  }
+
+  function cf() {
+    se.current.value = "";
+    n.current.value = "";
+    fil.current.value = "";
+    setSeason("");
+    setFilter("");
+    setNumber(0);
+  }
+
+  //checks to make sure fields are filled out properly
+  function filled() {
+    if (season === "" || filter === "" || Number(number) <= 0) {
+      alert("Fill everything out");
+    } else {
+      qC();
+    }
   }
 }
 

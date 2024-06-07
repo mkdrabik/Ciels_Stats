@@ -75,7 +75,8 @@ select :nth-child(1) {
 }
 
 select :nth-child(2),
-select :nth-child(3) {
+select :nth-child(3),
+select :nth-child(4) {
   color: black;
 }
 
