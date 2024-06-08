@@ -28,7 +28,11 @@ function Stats() {
       clear();
       if (auth.currentUser != null) {
         const colRef = collection(txtDB, season);
-        const q = await query(colRef, orderBy(filter, "asc"), limit(Number(2)));
+        const q = await query(
+          colRef,
+          orderBy(filter, "asc"),
+          limit(Number(number))
+        );
         const data = await getDocs(q);
         data.forEach((g) => {
           const game = {
