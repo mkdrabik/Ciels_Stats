@@ -71,3 +71,8 @@ button:hover {
   gap: 10px;
   padding: 1rem;
 }
+
+img {
+  height: 476px;
+  width: 300px;
+}
