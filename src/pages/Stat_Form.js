@@ -28,7 +28,6 @@ function StatForm() {
   const w = useRef("");
   const sea = useRef("");
   const [season, setSeason] = useState("");
-  const [win, setWin] = useState("");
   const [signedIn, setsignedIn] = useState(false);
   var emp = true;
 
@@ -390,7 +389,6 @@ function StatForm() {
       opponent: "",
     });
     setSeason("");
-    setWin("");
   }
 }
 

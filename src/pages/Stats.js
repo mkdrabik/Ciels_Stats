@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-
 import "./Stats.css";
 import Header from "../components/Header";
 import { txtDB, auth } from "./txtConfig";
@@ -11,7 +10,7 @@ function Stats() {
     if (lv == null) return [];
     return JSON.parse(lv);
   });
-
+  const [showSB, setSB] = useState(true);
   const [season, setSeason] = useState("");
   const [filter, setFilter] = useState("");
   const [number, setNumber] = useState(0);
@@ -23,52 +22,40 @@ function Stats() {
     localStorage.setItem("GAMES", JSON.stringify(games));
   }, [games]);
 
-  useEffect(() => {
-    localStorage.setItem("SEASON", season.toString());
-    alert(localStorage.getItem("SEASON"));
-  }, [season]);
-
   //gets games ordered by points; more queries to come
   async function qC() {
-    alert(localStorage.getItem("SEASON"));
-    if (lsl() !== Number(number) || season !== lss()) {
-      try {
-        if (auth.currentUser != null) {
-          const colRef = collection(txtDB, season);
-          const q = await query(
-            colRef,
-            orderBy(filter, "asc"),
-            limit(Number(2))
-          );
-          const data = await getDocs(q);
-          data.forEach((g) => {
-            const game = {
-              points: g.data().Points,
-              rebounds: g.data().Rebounds,
-              assists: g.data().Assists,
-              steals: g.data().Steals,
-              blocks: g.data().Blocks,
-              fouls: g.data().Fouls,
-              win: g.data().Win,
-              opponent: g.data().Opponent,
-            };
-            setGames((ga) => [...ga, game]);
-          });
-        } else {
-          alert("Provide Gmail to view stats");
-        }
-      } catch (err) {
-        if (
-          err ===
-          "FirebaseError: [code=permission-denied]: Missing or insufficient permissions."
-        ) {
-          alert("Provide Gmail to view stats");
-        } else {
-          alert("Idk what happened lmao");
-        }
+    try {
+      clear();
+      if (auth.currentUser != null) {
+        const colRef = collection(txtDB, season);
+        const q = await query(colRef, orderBy(filter, "asc"), limit(Number(2)));
+        const data = await getDocs(q);
+        data.forEach((g) => {
+          const game = {
+            points: g.data().Points,
+            rebounds: g.data().Rebounds,
+            assists: g.data().Assists,
+            steals: g.data().Steals,
+            blocks: g.data().Blocks,
+            fouls: g.data().Fouls,
+            win: g.data().Win,
+            opponent: g.data().Opponent,
+          };
+          setGames((ga) => [...ga, game]);
+          setSB(false);
+        });
+      } else {
+        alert("Provide Gmail to view stats");
       }
-    } else {
-      alert("Up to date");
+    } catch (err) {
+      if (
+        err ===
+        "FirebaseError: [code=permission-denied]: Missing or insufficient permissions."
+      ) {
+        alert("Provide Gmail to view stats");
+      } else {
+        alert("Idk what happened lmao");
+      }
     }
   }
 
@@ -109,14 +96,18 @@ function Stats() {
           ref={n}
           onChange={handleNumChange}
         />
-        <button
-          className="button2"
-          onClick={(e) => {
-            filled();
-          }}
-        >
-          Get Stats
-        </button>
+        <div>
+          {showSB && (
+            <button
+              className="button2"
+              onClick={(e) => {
+                filled();
+              }}
+            >
+              Get Stats
+            </button>
+          )}
+        </div>
         <br></br>
         <br></br>
         <button
@@ -176,38 +167,23 @@ function Stats() {
     var e = document.getElementById("season");
     var value = e.options[e.selectedIndex].value;
     setSeason(value);
+    setSB(true);
   }
 
   function handleFilterChange() {
     var e = document.getElementById("filter");
     var value = e.options[e.selectedIndex].value;
     setFilter(value);
+    setSB(true);
   }
 
   function handleNumChange(e) {
     if (e.target.value >= 0) {
       setNumber(e.target.value);
+      setSB(true);
     } else {
       e.target.value = 0;
     }
-  }
-
-  //checks to see number of games in Local Storage
-  function lsl() {
-    const lv = localStorage.getItem("GAMES");
-    if (lv === null) return 0;
-    const temp = JSON.parse(lv);
-    return temp.length;
-  }
-
-  //checks to see current season of Locally Stored Games
-  function lss() {
-    const lv = localStorage.getItem("SEASON");
-    if (lv === null || lv === "") {
-      alert("BLANK");
-      return "";
-    }
-    return lv;
   }
 
   //resets local storage and games array
