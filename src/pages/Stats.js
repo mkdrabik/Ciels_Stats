@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import "./Stats.css";
+import "./css/Stats.css";
 import Header from "../components/Header";
 import { txtDB, auth } from "./txtConfig";
 import { collection, getDocs, limit, orderBy, query } from "firebase/firestore";
@@ -64,7 +64,7 @@ function Stats() {
   }
 
   return (
-    <body className="body2">
+    <>
       <Header />
       <br></br>
       <div className="row-container">
@@ -95,7 +95,7 @@ function Stats() {
         </select>
         <input
           placeholder="# of Games"
-          className="input-box"
+          className="input-box2"
           type="number"
           ref={n}
           onChange={handleNumChange}
@@ -115,7 +115,7 @@ function Stats() {
         <br></br>
         <br></br>
         <button
-          className="button2"
+          className="button3"
           onClick={(e) => {
             clear();
           }}
@@ -124,7 +124,7 @@ function Stats() {
         </button>
 
         <button
-          className="button2"
+          className="button3"
           onClick={(e) => {
             cf();
           }}
@@ -163,7 +163,7 @@ function Stats() {
           </tbody>
         </table>
       </div>
-    </body>
+    </>
   );
 
   //handles changes of pickers

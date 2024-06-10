@@ -1,5 +1,6 @@
-import "./Stat_Form.css";
+import "./css/Stat_Form.css";
 import Header from "../components/Header";
+import "./imgs/c1.jpeg";
 
 function Media() {
   return (
@@ -18,7 +19,7 @@ function Media() {
         allowFullScreen="true"
         title="shot"
       ></iframe>
-      <img src={require("./c1.jpeg")} alt="Logo" />;
+      <img src={require("./imgs/c1.jpeg")} alt="Logo" />;
     </div>
   );
 }

@@ -1,0 +1,130 @@
+body {
+  background-image: linear-gradient(
+    90deg,
+    rgb(28, 27, 27) 0%,
+    rgba(60, 53, 53, 0.25) 100%
+  );
+}
+.app-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 1rem;
+}
+.body2 {
+  background-size: cover;
+}
+.overall2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: first baseline;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid #ffffff;
+  text-align: left;
+  padding: 8px;
+  font-size: 32px;
+}
+
+th {
+  background-color: rgb(184, 209, 252);
+}
+
+td {
+  background-color: rgb(214, 214, 214);
+}
+
+form {
+  display: flex;
+  gap: 5px;
+}
+
+form td:last-child {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+form * {
+  font-size: 28px;
+}
+
+.button2 {
+  color: rgb(184, 209, 252);
+  font-size: 24px;
+  background-color: white;
+  border: 3px solid #000405;
+}
+.button3 {
+  color: rgb(184, 209, 252);
+  font-size: 18px;
+  background-color: white;
+  border: 3px solid #000405;
+}
+
+button:hover {
+  background-color: rgb(184, 209, 252);
+  color: white;
+}
+
+.row-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 1rem;
+}
+
+img {
+  height: 476px;
+  width: 300px;
+}
+
+@media (orientation: portrait) or (max-width: 1100px) {
+  .row-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1px;
+    padding: 0.1rem;
+  }
+  form * {
+    font-size: 14px;
+  }
+
+  th,
+  td {
+    border: 1px solid #ffffff;
+    text-align: left;
+    padding: 3px;
+    font-size: 12px;
+  }
+  .row-container select {
+    font-size: 16px;
+    font-weight: bold;
+    width: 50%;
+  }
+  .input-box2 {
+    font-size: 18px;
+    font-weight: bold;
+    width: 50%;
+    padding: 10px;
+  }
+
+  .button2 {
+    font-size: 16px;
+    width: 100px;
+    height: 50px;
+  }
+  .row-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 1rem;
+  }
+}

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import "./Stat_Form.css";
+import "./css/Stat_Form.css";
 import { txtDB, auth } from "./txtConfig";
 import { doc, setDoc } from "firebase/firestore";
 import { signOut, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
@@ -110,7 +110,7 @@ function StatForm() {
   };
 
   return (
-    <body>
+    <>
       <Header />
       <body class="overall">
         <div class="col">
@@ -281,7 +281,7 @@ function StatForm() {
           </button>
         </div>
       </body>
-    </body>
+    </>
   );
 
   //Functions to edit game item

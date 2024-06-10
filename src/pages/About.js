@@ -1,4 +1,4 @@
-import "./Stat_Form.css";
+import "./css/Stat_Form.css";
 import Header from "../components/Header";
 
 function About() {
