@@ -9,4 +9,4 @@
 6. Google Authentication is used so that only my family can log games. Anyone with a valid Gmail can view her stats. 
 
 
-**Demo is coming**
+*Demo is coming
