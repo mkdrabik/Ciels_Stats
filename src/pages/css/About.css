@@ -1,0 +1,15 @@
+.ab {
+  font-size: 40px;
+  color: blue;
+  animation: fade 1s ease-in 1s;
+  pointer-events: none;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

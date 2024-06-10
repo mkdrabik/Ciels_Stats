@@ -2,7 +2,15 @@ import { useState, useEffect, useRef } from "react";
 import "./css/Stats.css";
 import Header from "../components/Header";
 import { txtDB, auth } from "./txtConfig";
-import { collection, getDocs, limit, orderBy, query } from "firebase/firestore";
+import {
+  average,
+  collection,
+  getAggregateFromServer,
+  getDocs,
+  limit,
+  orderBy,
+  query,
+} from "firebase/firestore";
 
 function Stats() {
   const [games, setGames] = useState(() => {
@@ -33,6 +41,10 @@ function Stats() {
           orderBy(filter, "asc"),
           limit(Number(number))
         );
+        const ss = await getAggregateFromServer(q, {
+          ppg: average("Points"),
+        });
+        console.log("ppg", ss.data().ppg);
         const data = await getDocs(q);
         data.forEach((g) => {
           const game = {
