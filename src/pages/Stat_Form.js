@@ -157,9 +157,9 @@ function StatForm() {
 
         <div className="col">
           <h1 class="title">Game</h1>
-          <br></br>
-          <br></br>
-          <br></br>
+          <br />
+          <br />
+          <br />
           <input
             placeholder="Points"
             className="input-box"
@@ -167,8 +167,8 @@ function StatForm() {
             ref={p}
             onChange={handlePointChange}
           />
-          <br></br>
-          <br></br>
+          <br />
+          <br />
           <input
             placeholder="Rebounds"
             className="input-box"
@@ -176,8 +176,8 @@ function StatForm() {
             ref={r}
             onChange={handleReboundChange}
           />
-          <br></br>
-          <br></br>
+          <br />
+          <br />
           <input
             className="input-box"
             placeholder="Assists"
@@ -185,8 +185,8 @@ function StatForm() {
             ref={a}
             onChange={handleAssistChange}
           />
-          <br></br>
-          <br></br>
+          <br />
+          <br />
 
           <input
             placeholder="Steals"
@@ -195,9 +195,8 @@ function StatForm() {
             type="number"
             onChange={handleStealChange}
           />
-          <br></br>
-          <br></br>
-
+          <br />
+          <br />
           <input
             placeholder="Blocks"
             ref={b}
@@ -205,8 +204,8 @@ function StatForm() {
             type="number"
             onChange={handleBlockChange}
           />
-          <br></br>
-          <br></br>
+          <br />
+          <br />
 
           <input
             placeholder="Fouls"
@@ -215,8 +214,8 @@ function StatForm() {
             type="number"
             onChange={handleFoulChange}
           />
-          <br></br>
-          <br></br>
+          <br />
+          <br />
 
           <select
             required
@@ -230,8 +229,8 @@ function StatForm() {
             <option value="Win">Win</option>
             <option value="Loss">Loss</option>
           </select>
-          <br></br>
-          <br></br>
+          <br />
+          <br />
 
           <input
             placeholder="Opponent?"
@@ -240,8 +239,8 @@ function StatForm() {
             className="input-box"
             onChange={handleOpponentChange}
           />
-          <br></br>
-          <br></br>
+          <br />
+          <br />
 
           <input
             required
@@ -251,8 +250,8 @@ function StatForm() {
             className="input-box"
             onChange={handleDateChange}
           />
-          <br></br>
-          <br></br>
+          <br />
+          <br />
 
           <select
             required
@@ -269,9 +268,9 @@ function StatForm() {
         </div>
         <div class="col">
           <h1 class="title">Account Options</h1>
-          <br></br>
-          <br></br>
-          <br></br>
+          <br />
+          <br />
+          <br />
           <button
             className="si"
             onClick={(e) => {
@@ -280,9 +279,9 @@ function StatForm() {
           >
             Sign In
           </button>
-          <br></br>
-          <br></br>
-          <br></br>
+          <br />
+          <br />
+          <br />
           <button
             className="so"
             onClick={(e) => {
