@@ -13,12 +13,7 @@
 }
 
 .overall {
-  background-image: linear-gradient(
-    90deg,
-    rgb(28, 27, 27) 0%,
-    rgba(60, 53, 53, 0.25) 100%
-  );
-  background-size: cover;
+  background-color: white;
   min-width: 100%;
   margin: 0px;
   padding: 0px;
@@ -123,26 +118,6 @@ button {
   background: hsl(210, 8%, 95%);
 }
 
-.so {
-  background: rgb(66, 65, 65);
-  border: 1px solid rgb(236, 222, 222);
-}
-
-.so:hover,
-.so:focus-visible {
-  background: rgb(206, 52, 52);
-}
-
-.si {
-  background: rgb(66, 65, 65);
-  border: 1px solid rgb(236, 222, 222);
-}
-
-.si:hover,
-.si:focus-visible {
-  background: rgb(72, 217, 94);
-}
-
 li {
   color: black;
 }
@@ -156,9 +131,7 @@ li {
   .title {
     font-size: 20px;
   }
-  br {
-    line-height: 1px;
-  }
+
   .input-box {
     font-size: 18px;
     font-weight: bold;

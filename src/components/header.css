@@ -5,9 +5,9 @@
   background-color: rgb(16, 16, 17);
   background-size: cover;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
-  padding: 12px;
 }
 
 .cname {
@@ -33,9 +33,9 @@
   font-family: "Ysabeau SC";
   color: rgb(184, 209, 252);
   text-decoration: none;
-  font-size: 30px;
+  font-size: 40px;
   font-weight: bold;
-  padding: 15px;
+  padding: 20px;
   text-align: center;
 }
 

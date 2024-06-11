@@ -3,6 +3,7 @@ import StatForm from "./pages/Stat_Form";
 import About from "./pages/About";
 import Stats from "./pages/Stats";
 import Media from "./pages/Media";
+import Account from "./pages/Account";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/stat_form" element={<StatForm />} />
           <Route path="/stats" element={<Stats />} />
           <Route path="/media" element={<Media />} />
+          <Route path="/account" element={<Account />} />
         </Routes>
       </BrowserRouter>
     </>

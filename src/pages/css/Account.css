@@ -1,0 +1,28 @@
+.aoverall {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.so {
+  background: rgb(206, 52, 52);
+  border: 1px solid rgb(236, 222, 222);
+}
+
+.so:hover,
+.so:focus-visible {
+  background: white;
+  color: rgb(206, 52, 52);
+}
+
+.si {
+  background: rgb(72, 217, 94);
+  border: 1px solid rgb(236, 222, 222);
+}
+
+.si:hover,
+.si:focus-visible {
+  background: white;
+  color: rgb(72, 217, 94);
+}

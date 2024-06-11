@@ -1,4 +1,4 @@
-import React from "react";
+import { React } from "react";
 import { Link } from "react-router-dom";
 import "./header.css";
 
@@ -14,6 +14,11 @@ function Header() {
         <ul>
           <li>
             <span>
+              <Link to="/account">Account</Link>
+            </span>
+          </li>
+          <li>
+            <span>
               <Link to="/stat_form">Log Stats</Link>
             </span>
           </li>
@@ -27,15 +32,9 @@ function Header() {
               <Link to="/media">Media</Link>
             </span>
           </li>
-          <li>
-            <span>
-              <Link to="/about">About</Link>
-            </span>
-          </li>
         </ul>
       </nav>
     </div>
   );
 }
-
 export default Header;
