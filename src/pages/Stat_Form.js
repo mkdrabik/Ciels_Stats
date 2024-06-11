@@ -2,7 +2,13 @@ import { useState, useEffect, useRef } from "react";
 import "./css/Stat_Form.css";
 import { txtDB, auth } from "./txtConfig";
 import { doc, setDoc } from "firebase/firestore";
-import { signOut, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import {
+  signOut,
+  signInWithPopup,
+  GoogleAuthProvider,
+  setPersistence,
+  browserLocalPersistence,
+} from "firebase/auth";
 import Header from "../components/Header";
 
 function StatForm() {
@@ -28,7 +34,6 @@ function StatForm() {
   const w = useRef("");
   const sea = useRef("");
   const [season, setSeason] = useState("");
-  const [signedIn, setsignedIn] = useState(false);
   var emp = true;
 
   //Resets form whenever page is refreshed
@@ -84,11 +89,10 @@ function StatForm() {
     try {
       await signInWithPopup(auth, provider);
       alert("Logged in");
-      setsignedIn(true);
+      enablePersistence();
     } catch (error) {
       alert("Error logging in");
     }
-
     try {
       await setDoc(doc(txtDB, "users", auth.currentUser.displayName), {
         Email: auth.currentUser.email,
@@ -98,12 +102,20 @@ function StatForm() {
     }
   };
 
+  //function to enable local storage to remember user
+  const enablePersistence = async () => {
+    try {
+      await setPersistence(auth, browserLocalPersistence);
+    } catch (e) {
+      alert("Persistence not set!");
+    }
+  };
   //Logs the user out of Google account
   const handleSo = async (e) => {
     try {
-      signOut(auth);
+      await signOut(auth);
       alert("Successfully signed out");
-      setsignedIn(false);
+      alert(auth.currentUser === null);
     } catch (error) {
       alert("Not logged out!");
     }
@@ -121,8 +133,8 @@ function StatForm() {
           <button
             className="sub"
             onClick={(e) => {
-              if (!signedIn) {
-                alert("Sign in to log stats!");
+              if (!auth.currentUser) {
+                alert("Sign in to log stats");
               } else {
                 filled();
               }
