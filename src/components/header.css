@@ -49,23 +49,17 @@
 
 @media (orientation: portrait) or (max-width: 1100px) {
   .cname {
-    font-size: 20px;
-  }
-  .header {
-    background-color: rgb(16, 16, 17);
-    background-size: cover;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    font-size: 40px;
     padding: 0px;
   }
-
-  .navbar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  .header {
+    flex-direction: column;
+    padding: 2px;
   }
+
   .navbar a {
-    font-size: 18px;
+    font-size: 20px;
+    justify-content: space-evenly;
+    padding: 10px;
   }
 }

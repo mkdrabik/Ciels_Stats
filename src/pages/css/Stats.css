@@ -64,7 +64,7 @@ form * {
 }
 .button3 {
   color: rgb(184, 209, 252);
-  font-size: 18px;
+  font-size: 24px;
   background-color: white;
   border: 3px solid #000405;
 }
@@ -137,6 +137,11 @@ img {
   }
 
   .button2 {
+    font-size: 16px;
+    width: 100px;
+    height: 50px;
+  }
+  .button3 {
     font-size: 16px;
     width: 100px;
     height: 50px;
