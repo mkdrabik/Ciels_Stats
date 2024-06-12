@@ -18,6 +18,13 @@ function Stats() {
     if (lv == null) return [];
     return JSON.parse(lv);
   });
+
+  const [avgs, setAVGs] = useState(() => {
+    const lv = localStorage.getItem("AVGS");
+    if (lv == null) return {};
+    return JSON.parse(lv);
+  });
+
   const [showSB, setSB] = useState(true);
   const [season, setSeason] = useState("");
   const [filter, setFilter] = useState("");
@@ -30,10 +37,17 @@ function Stats() {
     localStorage.setItem("GAMES", JSON.stringify(games));
   }, [games]);
 
+  useEffect(() => {
+    localStorage.setItem("AVGS", JSON.stringify(avgs));
+    console.log(avgs);
+    console.log(localStorage.getItem("AVGS"));
+  }, [avgs]);
+
   //gets games ordered by points; more queries to come
   async function qC() {
     try {
-      clear();
+      setGames([]);
+      setAVGs({});
       if (auth.currentUser != null) {
         const colRef = collection(txtDB, season);
         const q = await query(
@@ -41,10 +55,22 @@ function Stats() {
           orderBy(filter, "asc"),
           limit(Number(number))
         );
+
         const ss = await getAggregateFromServer(q, {
           ppg: average("Points"),
+          rpg: average("Rebounds"),
+          apg: average("Assists"),
+          spg: average("Steals"),
+          fpg: average("Fouls"),
         });
-        console.log("ppg", ss.data().ppg);
+
+        setAVGs({
+          points: Math.round(ss.data().ppg * 10) / 10,
+          rebounds: Math.round(ss.data().rpg * 10) / 10,
+          assists: Math.round(ss.data().apg * 10) / 10,
+          steals: Math.round(ss.data().spg * 10) / 10,
+          fouls: Math.round(ss.data().fpg * 10) / 10,
+        });
         const data = await getDocs(q);
         data.forEach((g) => {
           const game = {
@@ -52,11 +78,11 @@ function Stats() {
             rebounds: g.data().Rebounds,
             assists: g.data().Assists,
             steals: g.data().Steals,
-            blocks: g.data().Blocks,
             fouls: g.data().Fouls,
             win: g.data().Win,
             opponent: g.data().Opponent,
           };
+
           setGames((ga) => [...ga, game]);
           setSB(false);
         });
@@ -70,7 +96,8 @@ function Stats() {
       ) {
         alert("Provide Gmail to view stats");
       } else {
-        alert("Idk what happened lmao");
+        alert(err);
+        console.log(err);
       }
     }
   }
@@ -154,7 +181,7 @@ function Stats() {
                 <th>Rebounds</th>
                 <th>Assists</th>
                 <th>Steals</th>
-                <th>Blocks</th>
+
                 <th>Fouls</th>
                 <th>Win</th>
                 <th>Opponent</th>
@@ -167,12 +194,21 @@ function Stats() {
                   <td>{g.rebounds}</td>
                   <td>{g.assists}</td>
                   <td>{g.steals}</td>
-                  <td>{g.blocks}</td>
                   <td>{g.fouls}</td>
                   <td>{g.opponent}</td>
                   <td>{g.win}</td>
                 </tr>
               ))}
+              <tr>
+                <td>Avgs</td>
+              </tr>
+              <tr>
+                <td>{avgs.points}</td>
+                <td>{avgs.rebounds}</td>
+                <td>{avgs.assists}</td>
+                <td>{avgs.steals}</td>
+                <td>{avgs.fouls}</td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -208,6 +244,7 @@ function Stats() {
   function clear() {
     setSeason("");
     setGames([]);
+    setAVGs({});
   }
 
   function cf() {
@@ -222,11 +259,12 @@ function Stats() {
   //checks to make sure fields are filled out properly
   function filled() {
     if (season === "" || filter === "" || Number(number) <= 0) {
+      console.log(season);
+      console.log(filter);
       alert("Fill everything out");
     } else {
       qC();
     }
   }
 }
-
 export default Stats;

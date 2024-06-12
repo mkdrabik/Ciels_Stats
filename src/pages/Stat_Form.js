@@ -12,7 +12,6 @@ function StatForm() {
     rebounds: 0,
     assists: 0,
     steals: 0,
-    blocks: 0,
     fouls: 0,
     win: "",
   });
@@ -22,7 +21,6 @@ function StatForm() {
   const r = useRef(0);
   const a = useRef(0);
   const s = useRef(0);
-  const b = useRef(0);
   const f = useRef(0);
   const w = useRef("");
   const sea = useRef("");
@@ -36,7 +34,6 @@ function StatForm() {
       rebounds: 0,
       assists: 0,
       steals: 0,
-      blocks: 0,
       fouls: 0,
       win: "",
       opponent: "",
@@ -55,7 +52,6 @@ function StatForm() {
         Rebounds: Number(game.rebounds),
         Opponent: game.opponent,
         Steals: Number(game.steals),
-        Blocks: Number(game.blocks),
         Win: game.win,
         Fouls: Number(game.fouls),
       });
@@ -76,9 +72,9 @@ function StatForm() {
   return (
     <body class="bg">
       <Header />
-      <body class="overall">
+      <body className="overall">
         <div className="col">
-          <div class="row">
+          <div className="row">
             <button
               className="sub"
               onClick={(e) => {
@@ -91,7 +87,7 @@ function StatForm() {
             >
               Submit
             </button>
-            <h1 class="title">Game</h1>
+            <h1 className="title">Game</h1>
             <button
               className="reset"
               onClick={(e) => {
@@ -137,15 +133,6 @@ function StatForm() {
             className="input-box"
             type="number"
             onChange={handleStealChange}
-          />
-          <br />
-          <br />
-          <input
-            placeholder="Blocks"
-            ref={b}
-            className="input-box"
-            type="number"
-            onChange={handleBlockChange}
           />
           <br />
           <br />
@@ -256,13 +243,7 @@ function StatForm() {
       e.target.value = 0;
     }
   }
-  function handleBlockChange(e) {
-    if (e.target.value >= 0) {
-      setGame((g) => ({ ...game, blocks: e.target.value }));
-    } else {
-      e.target.value = 0;
-    }
-  }
+
   function handleFoulChange(e) {
     if (e.target.value >= 0) {
       setGame((g) => ({ ...game, fouls: e.target.value }));
@@ -302,7 +283,6 @@ function StatForm() {
     a.current.value = "";
     f.current.value = "";
     s.current.value = "";
-    b.current.value = "";
     d.current.value = "";
     w.current.value = "";
     o.current.value = "";
@@ -312,7 +292,6 @@ function StatForm() {
       rebounds: 0,
       assists: 0,
       steals: 0,
-      blocks: 0,
       fouls: 0,
       win: "",
       opponent: "",
