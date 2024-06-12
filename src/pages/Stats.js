@@ -76,106 +76,108 @@ function Stats() {
   }
 
   return (
-    <>
-      <Header />
-      <br></br>
-      <div className="row-container">
-        <select
-          required
-          name="season"
-          id="season"
-          placeholder=""
-          onChange={handleSeasonChange}
-          ref={se}
-        >
-          <option value="">Which Season</option>
-          <option value="AAU">AAU</option>
-          <option value="IHM">IHM</option>
-        </select>
-        <select
-          required
-          name="filter"
-          id="filter"
-          placeholder=""
-          onChange={handleFilterChange}
-          ref={fil}
-        >
-          <option value="">Filter By</option>
-          <option value="Points">Points</option>
-          <option value="Win">Win</option>
-          <option value="Opponent">Opponent</option>
-        </select>
-        <input
-          placeholder="# of Games"
-          className="input-box2"
-          type="number"
-          ref={n}
-          onChange={handleNumChange}
-        />
-        <div>
-          {showSB && (
-            <button
-              className="button2"
-              onClick={(e) => {
-                filled();
-              }}
-            >
-              Get Stats
-            </button>
-          )}
+    <body className="bg2">
+      <>
+        <Header />
+        <br></br>
+        <div className="row-container">
+          <select
+            required
+            name="season"
+            id="season"
+            placeholder=""
+            onChange={handleSeasonChange}
+            ref={se}
+          >
+            <option value="">Which Season</option>
+            <option value="AAU">AAU</option>
+            <option value="IHM">IHM</option>
+          </select>
+          <select
+            required
+            name="filter"
+            id="filter"
+            placeholder=""
+            onChange={handleFilterChange}
+            ref={fil}
+          >
+            <option value="">Filter By</option>
+            <option value="Points">Points</option>
+            <option value="Win">Win</option>
+            <option value="Opponent">Opponent</option>
+          </select>
+          <input
+            placeholder="# of Games"
+            className="input-box2"
+            type="number"
+            ref={n}
+            onChange={handleNumChange}
+          />
+          <div>
+            {showSB && (
+              <button
+                className="button2"
+                onClick={(e) => {
+                  filled();
+                }}
+              >
+                Get Stats
+              </button>
+            )}
+          </div>
+          <br></br>
+          <br></br>
+          <button
+            className="button3"
+            onClick={(e) => {
+              clear();
+            }}
+          >
+            Clear Data
+          </button>
+
+          <button
+            className="button3"
+            onClick={(e) => {
+              cf();
+            }}
+          >
+            Clear Form
+          </button>
         </div>
         <br></br>
-        <br></br>
-        <button
-          className="button3"
-          onClick={(e) => {
-            clear();
-          }}
-        >
-          Clear Data
-        </button>
-
-        <button
-          className="button3"
-          onClick={(e) => {
-            cf();
-          }}
-        >
-          Clear Form
-        </button>
-      </div>
-      <br></br>
-      <div className="app-container">
-        <table>
-          <thead>
-            <tr>
-              <th>Points</th>
-              <th>Rebounds</th>
-              <th>Assists</th>
-              <th>Steals</th>
-              <th>Blocks</th>
-              <th>Fouls</th>
-              <th>Win</th>
-              <th>Opponent</th>
-            </tr>
-          </thead>
-          <tbody>
-            {games.map((g) => (
+        <div className="app-container">
+          <table>
+            <thead>
               <tr>
-                <td>{g.points}</td>
-                <td>{g.rebounds}</td>
-                <td>{g.assists}</td>
-                <td>{g.steals}</td>
-                <td>{g.blocks}</td>
-                <td>{g.fouls}</td>
-                <td>{g.opponent}</td>
-                <td>{g.win}</td>
+                <th>Points</th>
+                <th>Rebounds</th>
+                <th>Assists</th>
+                <th>Steals</th>
+                <th>Blocks</th>
+                <th>Fouls</th>
+                <th>Win</th>
+                <th>Opponent</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </>
+            </thead>
+            <tbody>
+              {games.map((g) => (
+                <tr>
+                  <td>{g.points}</td>
+                  <td>{g.rebounds}</td>
+                  <td>{g.assists}</td>
+                  <td>{g.steals}</td>
+                  <td>{g.blocks}</td>
+                  <td>{g.fouls}</td>
+                  <td>{g.opponent}</td>
+                  <td>{g.win}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </>
+    </body>
   );
 
   //handles changes of pickers

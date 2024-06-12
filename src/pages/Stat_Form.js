@@ -74,7 +74,7 @@ function StatForm() {
   };
 
   return (
-    <>
+    <body class="bg">
       <Header />
       <body class="overall">
         <div class="col">
@@ -219,7 +219,7 @@ function StatForm() {
           </select>
         </div>
       </body>
-    </>
+    </body>
   );
 
   //Functions to edit game item

@@ -59,7 +59,7 @@ function Account() {
     }
   };
   return (
-    <>
+    <body className="abg">
       <Header />
       <body className="aoverall">
         <br />
@@ -85,7 +85,7 @@ function Account() {
           Sign Out
         </button>
       </body>
-    </>
+    </body>
   );
 }
 

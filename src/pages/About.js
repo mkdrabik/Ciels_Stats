@@ -3,10 +3,12 @@ import Header from "../components/Header";
 
 function About() {
   return (
-    <div>
-      <Header />
-      <h1 className="ab">Hello</h1>
-    </div>
+    <body className="bg2">
+      <div>
+        <Header />
+        <h1 className="ab">Hello</h1>
+      </div>
+    </body>
   );
 }
 
