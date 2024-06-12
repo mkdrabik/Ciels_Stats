@@ -77,41 +77,32 @@ function StatForm() {
     <body class="bg">
       <Header />
       <body class="overall">
-        <div class="col">
-          <h1 class="title">Form Options</h1>
-          <br></br>
-          <br></br>
-          <br></br>
-          <button
-            className="sub"
-            onClick={(e) => {
-              if (!auth.currentUser) {
-                alert("Sign in to log stats");
-              } else {
-                filled();
-              }
-            }}
-          >
-            Submit
-          </button>
-          <br></br>
-          <br></br>
-          <br></br>
-          <button
-            className="reset"
-            onClick={(e) => {
-              clear();
-            }}
-          >
-            Reset
-          </button>
-        </div>
-
         <div className="col">
-          <h1 class="title">Game</h1>
+          <div class="row">
+            <button
+              className="sub"
+              onClick={(e) => {
+                if (!auth.currentUser) {
+                  alert("Sign in to log stats");
+                } else {
+                  filled();
+                }
+              }}
+            >
+              Submit
+            </button>
+            <h1 class="title">Game</h1>
+            <button
+              className="reset"
+              onClick={(e) => {
+                clear();
+              }}
+            >
+              Reset
+            </button>
+          </div>
           <br />
-          <br />
-          <br />
+
           <input
             placeholder="Points"
             className="input-box"

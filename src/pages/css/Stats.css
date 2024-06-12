@@ -14,6 +14,7 @@
     rgba(60, 53, 53, 0.25) 100%
   );
   height: 100vh;
+  width: 100vw;
 }
 
 table {
@@ -55,12 +56,14 @@ form * {
   color: rgb(184, 209, 252);
   font-size: 24px;
   background-color: white;
+  margin: 0;
   border: 3px solid #000405;
 }
 .button3 {
   color: rgb(184, 209, 252);
   font-size: 24px;
   background-color: white;
+  margin: 0;
   border: 3px solid #000405;
 }
 
@@ -100,8 +103,16 @@ img {
   height: 476px;
   width: 300px;
 }
+@media (max-width: 1350px) {
+  .button2 {
+    font-size: 18px;
+  }
+  .button3 {
+    font-size: 18px;
+  }
+}
 
-@media (orientation: portrait) or (max-width: 1100px) {
+@media (orientation: portrait) or (max-width: 1110px) {
   .row-container {
     display: flex;
     flex-direction: row;

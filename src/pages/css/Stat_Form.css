@@ -7,9 +7,15 @@
 .title {
   font-family: "Ysabeau SC";
   color: rgb(184, 209, 252);
-  font-size: 50px;
-  font-weight: bold;
   text-decoration-line: underline;
+  background-color: white;
+  width: 300px;
+  font-size: 50px;
+  height: 75px;
+  outline: none;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 0.25em;
 }
 
 .overall {
@@ -36,6 +42,13 @@
   justify-content: center;
   align-items: center;
   padding: 1rem;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 input {
@@ -99,6 +112,8 @@ button {
   outline: none;
   font-weight: bold;
   padding: 0.25em 0.5em;
+  margin-left: 75px;
+  margin-right: 75px;
   border-radius: 0.25em;
   color: hsl(0, 11%, 98%);
 }
@@ -130,13 +145,18 @@ li {
 }
 
 @media (orientation: portrait) or (max-width: 1100px) {
+  .title {
+    width: 120px;
+    font-size: 30px;
+    height: 50px;
+  }
+
   button {
     font-size: 16px;
     width: 100px;
     height: 50px;
-  }
-  .title {
-    font-size: 20px;
+    margin-left: 25px;
+    margin-right: 25px;
   }
 
   .input-box {
