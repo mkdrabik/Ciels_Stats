@@ -183,8 +183,9 @@ function Stats() {
                 <th>Steals</th>
 
                 <th>Fouls</th>
-                <th>Win</th>
+
                 <th>Opponent</th>
+                <th>Win</th>
               </tr>
             </thead>
             <tbody>
