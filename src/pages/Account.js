@@ -27,7 +27,6 @@ function Account() {
       } catch (error) {
         alert(error);
       }
-      /*
       try {
         await setDoc(doc(txtDB, "users", auth.currentUser.displayName), {
           Email: auth.currentUser.email,
@@ -35,7 +34,6 @@ function Account() {
       } catch (error) {
         alert("Error uploading user");
       }
-        */
     }
   };
 
