@@ -59,7 +59,7 @@ function Account() {
     }
   };
   return (
-    <body className="abg">
+    <body className="abg2">
       <Header />
       <body className="aoverall">
         <br />
@@ -84,6 +84,14 @@ function Account() {
         >
           Sign Out
         </button>
+        <br />
+        <br />
+        <br />
+        <br />
+        <p>
+          *Gmail is only used to ensure those wanting to view stats are not
+          robots.
+        </p>
       </body>
     </body>
   );

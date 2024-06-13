@@ -6,14 +6,14 @@
 
 .title {
   font-family: "Ysabeau SC";
-  color: rgb(184, 209, 252);
+  color: rgb(20, 20, 20);
   text-decoration-line: underline;
   background-color: white;
   width: 300px;
   font-size: 50px;
   height: 75px;
   outline: none;
-  font-weight: bold;
+  font-weight: bolder;
   text-align: center;
   border-radius: 0.25em;
 }
@@ -29,11 +29,7 @@
 }
 
 .bg {
-  background-image: linear-gradient(
-    90deg,
-    rgb(28, 27, 27) 0%,
-    rgba(60, 53, 53, 0.25) 100%
-  );
+  background-color: rgb(56, 53, 53);
 }
 
 .col {
@@ -119,8 +115,8 @@ button {
 }
 
 .sub {
-  background: rgb(72, 217, 94);
-  border: 1px solid rgb(72, 217, 94);
+  background: rgb(42, 192, 65);
+  border: 1px solid rgb(42, 192, 65);
 }
 
 .reset {
@@ -130,7 +126,7 @@ button {
 
 .sub:hover,
 .sub:focus-visible {
-  color: rgb(72, 217, 94);
+  color: rgb(42, 192, 65);
   background: hsl(210, 8%, 95%);
 }
 

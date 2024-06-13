@@ -140,20 +140,19 @@ function Stats() {
             ref={n}
             onChange={handleNumChange}
           />
-          <div>
-            {showSB && (
-              <button
-                className="button2"
-                onClick={(e) => {
-                  filled();
-                }}
-              >
-                Get Stats
-              </button>
-            )}
-          </div>
-          <br></br>
-          <br></br>
+        </div>
+        <div className="hori">
+          {showSB && (
+            <button
+              className="button2"
+              onClick={(e) => {
+                filled();
+              }}
+            >
+              Get Stats
+            </button>
+          )}
+
           <button
             className="button3"
             onClick={(e) => {
@@ -172,6 +171,7 @@ function Stats() {
             Clear Form
           </button>
         </div>
+
         <br></br>
         <div className="app-container">
           <table>
@@ -185,7 +185,7 @@ function Stats() {
                 <th>Fouls</th>
 
                 <th>Opponent</th>
-                <th>Win</th>
+                <th>W/L</th>
               </tr>
             </thead>
             <tbody>

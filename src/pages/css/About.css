@@ -1,7 +1,8 @@
 .hori {
   display: flex;
   flex-direction: row;
-  perspective: 200px;
+  gap: 20px;
+  margin: 1rem;
 }
 
 .ab2 {
@@ -16,7 +17,6 @@
   font-family: "Courier New", Courier, monospace;
   font-size: 40px;
   color: rgb(27, 140, 233);
-
   animation: fade 1s ease-in 1s;
   pointer-events: none;
   padding-right: 20px;
@@ -37,5 +37,15 @@
   }
   100% {
     opacity: 1;
+  }
+}
+
+@media (orientation: portrait) or (max-width: 1100px) {
+  .ab1,
+  .ab2 {
+    font-size: 30px;
+  }
+  .hori {
+    gap: 5px;
   }
 }

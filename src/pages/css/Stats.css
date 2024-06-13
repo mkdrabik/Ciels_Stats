@@ -8,11 +8,7 @@
   background-size: cover;
 }
 .bg2 {
-  background-image: linear-gradient(
-    90deg,
-    rgb(28, 27, 27) 0%,
-    rgba(60, 53, 53, 0.25) 100%
-  );
+  background-color: rgb(51, 53, 52);
   height: 100vh;
   width: 100vw;
 }
@@ -129,7 +125,8 @@ img {
     border: 1px solid #ffffff;
     text-align: left;
     padding: 3px;
-    font-size: 12px;
+    font-size: 14px;
+    height: 40px;
   }
   .row-container select {
     font-size: 16px;
