@@ -1,6 +1,7 @@
 import { React } from "react";
 import Header from "../components/Header";
-import { auth } from "../pages/txtConfig";
+import { txtDB, auth } from "../pages/txtConfig";
+import { doc, setDoc } from "firebase/firestore";
 import "./css/Account.css";
 import {
   signOut,
