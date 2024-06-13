@@ -4,12 +4,27 @@
     rgb(28, 27, 27) 0%,
     rgba(60, 53, 53, 0.25) 100%
   );
-  height: 100vh;
+  height: 1200px;
+}
+
+.hori {
+  display: flex;
+  flex-direction: row;
 }
 
 .ab {
   font-size: 40px;
-  color: blue;
+  color: rgb(184, 209, 252);
+  animation: fade 1s ease-in 1s;
+  pointer-events: none;
+  font-weight: lighter;
+}
+.ab1 {
+  font-size: 40px;
+  color: rgb(184, 209, 252);
+  animation: fade 1s ease-in 1s;
+  pointer-events: none;
+  padding-right: 20px;
   animation: fade 1s ease-in 1s;
   pointer-events: none;
 }

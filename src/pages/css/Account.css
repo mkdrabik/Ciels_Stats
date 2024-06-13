@@ -35,3 +35,10 @@
   background: white;
   color: rgb(72, 217, 94);
 }
+
+.ab {
+  font-size: 40px;
+  color: rgb(184, 209, 252);
+  pointer-events: none;
+  font-weight: bold;
+}
