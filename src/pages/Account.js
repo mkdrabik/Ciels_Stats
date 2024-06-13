@@ -25,7 +25,7 @@ function Account() {
         alert("Logged in");
         enablePersistence();
       } catch (error) {
-        alert("Error logging in");
+        alert(error);
       }
       /*
       try {
