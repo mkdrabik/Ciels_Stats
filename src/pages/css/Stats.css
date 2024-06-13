@@ -20,6 +20,7 @@
 table {
   border-collapse: collapse;
   width: 100%;
+  scrollbar-width: 10px;
 }
 
 th,

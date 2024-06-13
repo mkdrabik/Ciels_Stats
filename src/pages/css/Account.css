@@ -12,6 +12,18 @@
     rgba(60, 53, 53, 0.25) 100%
   );
   height: 200vh;
+  overflow: hidden;
+  margin: 0rem;
+}
+.track {
+  object-fit: cover;
+  object-position: center;
+}
+
+.img-track {
+  display: flex;
+  gap: 8vmin;
+  position: absolute;
 }
 
 .so {
