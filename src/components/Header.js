@@ -7,7 +7,7 @@ function Header() {
     <div class="header">
       <h1>
         <Link to="/about" className="cname">
-          Cecilia Drabik
+          Mason Drabik
         </Link>
       </h1>
       <nav class="navbar">
