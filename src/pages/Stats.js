@@ -5,7 +5,6 @@ import { txtDB, auth } from "./txtConfig";
 import {
   average,
   collection,
-  documentId,
   getAggregateFromServer,
   getDocs,
   limit,
@@ -30,9 +29,11 @@ function Stats() {
   const [season, setSeason] = useState("");
   const [filter, setFilter] = useState("");
   const [number, setNumber] = useState(0);
+  const [order, setOrder] = useState("desc");
   const n = useRef("");
   const se = useRef("");
   const fil = useRef("");
+  const o = useRef("");
   //every time games changes local storage is updated
   useEffect(() => {
     localStorage.setItem("GAMES", JSON.stringify(games));
@@ -53,7 +54,7 @@ function Stats() {
         const colRef = collection(txtDB, season);
         const q = await query(
           colRef,
-          orderBy(documentId, "asc"),
+          orderBy(filter, order),
           limit(Number(number))
         );
 
@@ -131,8 +132,19 @@ function Stats() {
           >
             <option value="">Filter By</option>
             <option value="Points">Points</option>
-            <option value="Win">Win</option>
             <option value="Date">Date</option>
+          </select>
+          <select
+            required
+            name="order"
+            id="order"
+            placeholder=""
+            onChange={handleOrderChange}
+            ref={o}
+          >
+            <option value="">Order By</option>
+            <option value="desc">Highest/Recent</option>
+            <option value="asc">Lowest/Farthest</option>
           </select>
           <input
             placeholder="# of Games"
@@ -233,6 +245,13 @@ function Stats() {
     setSB(true);
   }
 
+  function handleOrderChange() {
+    var e = document.getElementById("order");
+    var value = e.options[e.selectedIndex].value;
+    setOrder(value);
+    setSB(true);
+  }
+
   function handleNumChange(e) {
     if (e.target.value >= 0) {
       setNumber(e.target.value);
@@ -253,9 +272,11 @@ function Stats() {
     se.current.value = "";
     n.current.value = "";
     fil.current.value = "";
+    o.current.value = "";
     setSeason("");
     setFilter("");
     setNumber(0);
+    setOrder("");
   }
 
   //checks to make sure fields are filled out properly
