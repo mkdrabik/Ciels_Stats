@@ -5,6 +5,7 @@ import { txtDB, auth } from "./txtConfig";
 import {
   average,
   collection,
+  documentId,
   getAggregateFromServer,
   getDocs,
   limit,
@@ -52,7 +53,7 @@ function Stats() {
         const colRef = collection(txtDB, season);
         const q = await query(
           colRef,
-          orderBy(filter, "asc"),
+          orderBy(documentId, "asc"),
           limit(Number(number))
         );
 
@@ -131,7 +132,7 @@ function Stats() {
             <option value="">Filter By</option>
             <option value="Points">Points</option>
             <option value="Win">Win</option>
-            <option value="Opponent">Opponent</option>
+            <option value="Date">Date</option>
           </select>
           <input
             placeholder="# of Games"
