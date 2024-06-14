@@ -199,6 +199,11 @@ function StatForm() {
             <option value="AAU">AAU</option>
             <option value="IHM">IHM</option>
           </select>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
         </div>
       </body>
     </body>
