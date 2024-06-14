@@ -62,7 +62,7 @@ function StatForm() {
       alert("Data added successfully.");
     } catch (err) {
       if (
-        err ===
+        err.toString() ===
         "FirebaseError: [code=permission-denied]: Missing or insufficient permissions."
       ) {
         alert("Contact Mason to log stats");

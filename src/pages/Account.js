@@ -52,7 +52,6 @@ function Account() {
     try {
       await signOut(auth);
       alert("Successfully signed out");
-      alert(auth.currentUser === null);
     } catch (error) {
       alert("Not logged out!");
     }
