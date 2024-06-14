@@ -46,15 +46,19 @@ function StatForm() {
   const handleUpload = async () => {
     try {
       game.date.toString();
-      await setDoc(doc(txtDB, season, game.date.toString()), {
-        Points: Number(game.points),
-        Assists: Number(game.assists),
-        Rebounds: Number(game.rebounds),
-        Opponent: game.opponent,
-        Steals: Number(game.steals),
-        Win: game.win,
-        Fouls: Number(game.fouls),
-      });
+      await setDoc(
+        doc(txtDB, season, game.opponent + " " + game.date.toString()),
+        {
+          Points: Number(game.points),
+          Assists: Number(game.assists),
+          Rebounds: Number(game.rebounds),
+          Opponent: game.opponent,
+          Steals: Number(game.steals),
+          Win: game.win,
+          Fouls: Number(game.fouls),
+          Date: game.date,
+        }
+      );
       alert("Data added successfully.");
     } catch (err) {
       if (
