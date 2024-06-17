@@ -14,7 +14,7 @@ function Header() {
         <ul>
           <li>
             <span>
-              <Link to="/account">Gmail</Link>
+              <Link to="/account">Email</Link>
             </span>
           </li>
           <li>

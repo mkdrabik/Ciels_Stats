@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from "react";
-import { txtDB, auth } from "./txtConfig";
+import { useState, useRef } from "react";
+import { auth } from "./txtConfig";
 import {
   createUserWithEmailAndPassword,
   setPersistence,
