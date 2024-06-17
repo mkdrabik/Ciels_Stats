@@ -195,7 +195,7 @@ function StatForm() {
             onChange={handleSeasonChange}
             ref={sea}
           >
-            <option value="">Which Season</option>
+            <option value="">Season?</option>
             <option value="AAU">AAU</option>
             <option value="IHM">IHM</option>
           </select>
