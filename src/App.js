@@ -4,6 +4,7 @@ import About from "./pages/About";
 import Stats from "./pages/Stats";
 import Media from "./pages/Media";
 import Account from "./pages/Account";
+import SignUp from "./pages/Signup";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/stats" element={<Stats />} />
           <Route path="/media" element={<Media />} />
           <Route path="/account" element={<Account />} />
+          <Route path="/su" element={<SignUp />} />
         </Routes>
       </BrowserRouter>
     </>

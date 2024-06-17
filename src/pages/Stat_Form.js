@@ -229,7 +229,6 @@ function StatForm() {
   }
   function handleDateChange(e) {
     setGame((g) => ({ ...game, date: e.target.value }));
-    console.log(e.target.value);
   }
   function handleReboundChange(e) {
     if (e.target.value >= 0) {

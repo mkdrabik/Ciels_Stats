@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import { txtDB, auth } from "../pages/txtConfig";
 import { doc, setDoc } from "firebase/firestore";
 import "./css/Account.css";
+import { Link } from "react-router-dom";
 import {
   signOut,
   signInWithPopup,
@@ -68,10 +69,17 @@ function Account() {
             handleGoogle();
           }}
         >
-          Sign In
+          Gmail
         </button>
         <br />
         <br />
+
+        <span>
+          <Link to="/su">
+            <button className="si">Email</button>
+          </Link>
+        </span>
+
         <br />
         <br />
         <button
@@ -86,8 +94,9 @@ function Account() {
         <br />
         <br />
         <br />
+
         <p>
-          *Gmail is only used to ensure those wanting to view stats are not
+          *Email is only used to ensure those wanting to view stats are not
           robots.
         </p>
       </body>
