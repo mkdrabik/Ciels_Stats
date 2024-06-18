@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
-import { auth } from "./txtConfig";
+import { auth, txtDB } from "./txtConfig";
+import { doc, setDoc } from "firebase/firestore";
 import "./css/Account.css";
 import {
   createUserWithEmailAndPassword,
@@ -43,6 +44,15 @@ function SignUp() {
         console.log(err);
       }
     }
+    try {
+      await setDoc(doc(txtDB, "users", firstName + " " + LastName), {
+        Email: auth.currentUser.email,
+        First: firstName,
+        Last: LastName,
+      });
+    } catch (error) {
+      alert("Error uploading user");
+    }
   };
 
   const logUserIn = async (e) => {
@@ -58,6 +68,7 @@ function SignUp() {
         alert(
           "Please ensure your email is correct and please type your name in the same way you typed it when you signed up."
         );
+        alert("Email drabikmason12@gmail.com if you are still having trouble.");
       } else {
         console.log(err);
       }
@@ -124,7 +135,8 @@ function SignUp() {
         </p>
         <p>
           *Your name is used to log you back in if you log out. Please ensure
-          there are no extra spaces and the first letter is capital.
+          there are no extra spaces and the first letter is capital. If you
+          still cannot get in email drabikmason12@gmail.com.
         </p>
 
         {!user && (
