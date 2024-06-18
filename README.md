@@ -6,7 +6,7 @@
 3. Utilizes queries to allow the user to filter through games based on certain categories.
 4. Gives averages over the filtered games. 
 5. Page that features photos and videos of her games.
-6. Google Authentication is used so that only my family can log games. Anyone with a valid Gmail can view her stats. 
+6. Google Authentication is used so that only my family can log games. Anyone with a valid email can view her stats. 
 
 
 # Check it out at: 
