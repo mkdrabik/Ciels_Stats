@@ -41,6 +41,7 @@ function SignUp() {
       else if (err.toString().includes("invalid-email")) {
         alert("Please enter a valid email");
       } else {
+        alert("User not created");
         console.log(err);
       }
     }
@@ -70,6 +71,7 @@ function SignUp() {
         );
         alert("Email drabikmason12@gmail.com if you are still having trouble.");
       } else {
+        alert("Error logging in");
         console.log(err);
       }
     }
