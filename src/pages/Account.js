@@ -1,4 +1,4 @@
-import { React } from "react";
+import { React, useState, useEffect } from "react";
 import Header from "../components/Header";
 import { txtDB, auth } from "../pages/txtConfig";
 import { doc, setDoc } from "firebase/firestore";
@@ -13,6 +13,15 @@ import {
 } from "firebase/auth";
 
 function Account() {
+  const [user, setUser] = useState(false);
+
+  useEffect(() => {
+    if (auth.currentUser === null) {
+      setUser(false);
+    } else {
+      setUser(true);
+    }
+  }, []);
   //Handles logging in with Google Account
   const handleGoogle = async (e) => {
     if (auth.currentUser) {
@@ -26,6 +35,7 @@ function Account() {
         await signInWithPopup(auth, provider);
         alert("Logged in");
         enablePersistence();
+        setUser(true);
       } catch (error) {
         alert(error);
       }
@@ -53,6 +63,7 @@ function Account() {
     try {
       await signOut(auth);
       alert("Successfully signed out");
+      window.location.reload();
     } catch (error) {
       alert("Not logged out!");
     }
@@ -63,33 +74,38 @@ function Account() {
       <body className="aoverall">
         <br />
         <br />
-        <button
-          className="si"
-          onClick={(e) => {
-            handleGoogle();
-          }}
-        >
-          Gmail
-        </button>
+        {!user && (
+          <button
+            className="si"
+            onClick={(e) => {
+              handleGoogle();
+            }}
+          >
+            Gmail
+          </button>
+        )}
         <br />
         <br />
+        {!user && (
+          <span>
+            <Link to="/su">
+              <button className="si">Email</button>
+            </Link>
+          </span>
+        )}
 
-        <span>
-          <Link to="/su">
-            <button className="si">Email</button>
-          </Link>
-        </span>
-
         <br />
         <br />
-        <button
-          className="so"
-          onClick={(e) => {
-            handleSo();
-          }}
-        >
-          Sign Out
-        </button>
+        {user && (
+          <button
+            className="so"
+            onClick={(e) => {
+              handleSo();
+            }}
+          >
+            Sign Out
+          </button>
+        )}
         <br />
         <br />
         <br />
