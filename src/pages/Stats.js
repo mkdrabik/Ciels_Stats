@@ -10,6 +10,7 @@ import {
   limit,
   orderBy,
   query,
+  where,
 } from "firebase/firestore";
 
 function Stats() {
@@ -30,34 +31,62 @@ function Stats() {
   const [filter, setFilter] = useState("");
   const [number, setNumber] = useState(0);
   const [order, setOrder] = useState("desc");
+  const [opponent, setOpponent] = useState("");
+  const [useOpp, setUseOpp] = useState(false);
   const n = useRef("");
   const se = useRef("");
   const fil = useRef("");
   const o = useRef("");
+  const opp = useRef("");
+
   //every time games changes local storage is updated
   useEffect(() => {
     localStorage.setItem("GAMES", JSON.stringify(games));
   }, [games]);
 
+  //when filter changes if user is using opponent variable changes
+  //else opponent input is not seen
+  useEffect(() => {
+    if (filter === "Opponent") {
+      setUseOpp(true);
+    } else {
+      setUseOpp(false);
+    }
+  }, [filter]);
+
+  //stores averages in local storage everytime avgs changes
   useEffect(() => {
     localStorage.setItem("AVGS", JSON.stringify(avgs));
-    console.log(avgs);
-    console.log(localStorage.getItem("AVGS"));
   }, [avgs]);
 
-  //gets games ordered by points; more queries to come
+  //gets games ordered based on filter choice;
   async function qC() {
     try {
       setGames([]);
       setAVGs({});
       if (auth.currentUser != null) {
         const colRef = collection(txtDB, season);
-        const q = await query(
-          colRef,
-          orderBy(filter, order),
-          limit(Number(number))
-        );
+        var q = null;
+        if (useOpp) {
+          //opponent query
+          q = await query(
+            colRef,
+            where("Opponent", "==", opponent),
+            limit(Number(number))
+          );
+          if (q.converter === null) {
+            alert("Invalid Opponent");
+          }
+        } else {
+          //non-opponent query
+          q = await query(
+            colRef,
+            orderBy(filter, order),
+            limit(Number(number))
+          );
+        }
 
+        //gets averages over query
         const ss = await getAggregateFromServer(q, {
           ppg: average("Points"),
           rpg: average("Rebounds"),
@@ -66,13 +95,6 @@ function Stats() {
           fpg: average("Fouls"),
         });
 
-        setAVGs({
-          points: Math.round(ss.data().ppg * 10) / 10,
-          rebounds: Math.round(ss.data().rpg * 10) / 10,
-          assists: Math.round(ss.data().apg * 10) / 10,
-          steals: Math.round(ss.data().spg * 10) / 10,
-          fouls: Math.round(ss.data().fpg * 10) / 10,
-        });
         const data = await getDocs(q);
         data.forEach((g) => {
           const game = {
@@ -86,16 +108,20 @@ function Stats() {
           };
 
           setGames((ga) => [...ga, game]);
+          setAVGs({
+            points: Math.round(ss.data().ppg * 10) / 10,
+            rebounds: Math.round(ss.data().rpg * 10) / 10,
+            assists: Math.round(ss.data().apg * 10) / 10,
+            steals: Math.round(ss.data().spg * 10) / 10,
+            fouls: Math.round(ss.data().fpg * 10) / 10,
+          });
           setSB(false);
         });
       } else {
         alert("Provide Gmail to view stats");
       }
     } catch (err) {
-      if (
-        err ===
-        "FirebaseError: [code=permission-denied]: Missing or insufficient permissions."
-      ) {
+      if (err.toString().includes(" Missing or insufficient permissions")) {
         alert("Provide Gmail to view stats");
       } else {
         alert(err);
@@ -133,19 +159,31 @@ function Stats() {
             <option value="">Filter By</option>
             <option value="Points">Points</option>
             <option value="Date">Date</option>
+            <option value="Opponent">Opponent</option>
           </select>
-          <select
-            required
-            name="order"
-            id="order"
-            placeholder=""
-            onChange={handleOrderChange}
-            ref={o}
-          >
-            <option value="">Order By</option>
-            <option value="desc">Highest/Recent</option>
-            <option value="asc">Lowest/Farthest</option>
-          </select>
+          {!useOpp && (
+            <select
+              required
+              name="order"
+              id="order"
+              placeholder=""
+              onChange={handleOrderChange}
+              ref={o}
+            >
+              <option value="">Order By</option>
+              <option value="desc">Highest/Recent</option>
+              <option value="asc">Lowest/Farthest</option>
+            </select>
+          )}
+          {useOpp && (
+            <input
+              placeholder="Team Name"
+              className="input-box2"
+              type="text"
+              ref={opp}
+              onChange={handleOppChange}
+            />
+          )}
           <input
             placeholder="# of Games"
             className="input-box2"
@@ -245,6 +283,11 @@ function Stats() {
     setSB(true);
   }
 
+  function handleOppChange(e) {
+    setOpponent(e.target.value);
+    setSB(true);
+  }
+
   function handleOrderChange() {
     var e = document.getElementById("order");
     var value = e.options[e.selectedIndex].value;
@@ -272,18 +315,21 @@ function Stats() {
     se.current.value = "";
     n.current.value = "";
     fil.current.value = "";
-    o.current.value = "";
+    if (!useOpp) {
+      o.current.value = "";
+    } else {
+      opp.current.value = "";
+    }
     setSeason("");
     setFilter("");
     setNumber(0);
     setOrder("");
+    setOpponent("");
   }
 
   //checks to make sure fields are filled out properly
   function filled() {
     if (season === "" || filter === "" || Number(number) <= 0) {
-      console.log(season);
-      console.log(filter);
       alert("Fill everything out");
     } else {
       qC();
