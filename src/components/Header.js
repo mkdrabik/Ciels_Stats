@@ -2,6 +2,10 @@ import { React } from "react";
 import { Link } from "react-router-dom";
 import "./header.css";
 
+document.addEventListener("DOMContentLoaded", function (event) {
+  document.querySelector("body").style.opacity = 1;
+});
+
 function Header() {
   return (
     <div class="header">

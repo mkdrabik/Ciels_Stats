@@ -47,7 +47,7 @@ function StatForm() {
     try {
       game.date.toString();
       await setDoc(
-        doc(txtDB, season, game.opponent + " " + game.date.toString()),
+        doc(txtDB, season, game.date.toString() + " " + game.opponent),
         {
           Points: Number(game.points),
           Assists: Number(game.assists),

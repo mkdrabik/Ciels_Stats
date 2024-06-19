@@ -252,7 +252,7 @@ function Stats() {
                 </tr>
               ))}
               <tr>
-                <td>Avgs</td>
+                <th>Avgs</th>
               </tr>
               <tr>
                 <td>{avgs.points}</td>
