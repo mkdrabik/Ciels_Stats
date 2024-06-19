@@ -33,14 +33,17 @@ function About() {
         <h1 className="ab1">GPA: </h1>
         <h1 className="ab2"> 4.0</h1>
       </div>
-      <h1 className="ab1"> Playstyle: </h1>
-
-      <h1 className="ab2">
-        Team first player who is constantly trying to get teamates involved.
-        Most of her scoring comes from slashing and 3pt shooting. She is a
-        tenacious defender who is constantly picking the pocket of her opponents
-        and chasing after every loose ball.
-      </h1>
+      <div className="hori">
+        <h1 className="ab1"> Playstyle: </h1>
+      </div>
+      <div className="hori">
+        <h1 className="ab2">
+          Team first player who is constantly trying to get teamates involved.
+          Most of her scoring comes from slashing and 3pt shooting. She is a
+          tenacious defender who is constantly picking the pocket of her
+          opponents and chasing after every loose ball.
+        </h1>
+      </div>
     </body>
   );
 }
