@@ -65,7 +65,7 @@ function StatForm() {
         err.toString() ===
         "FirebaseError: [code=permission-denied]: Missing or insufficient permissions."
       ) {
-        alert("Contact Mason to log stats");
+        alert("Contact drabikmason12@gmail.com to log stats");
       } else {
         alert("Idk what happened");
       }
