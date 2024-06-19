@@ -9,41 +9,75 @@
   font-family: "Courier New", Courier, monospace;
   font-size: 40px;
   color: rgb(73, 75, 80);
-  animation: fade 1s ease-in 1s;
+  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 2s; /* Firefox < 16 */
+  -ms-animation: fadein 2s; /* Internet Explorer */
+  -o-animation: fadein 2s; /* Opera < 12.1 */
+  animation: fadein 2s;
   pointer-events: none;
   font-weight: light;
 }
 .ab1 {
   font-family: "Courier New", Courier, monospace;
   font-size: 40px;
-  color: rgb(27, 140, 233);
+  color: rgb(102, 157, 253);
   animation: fade 1s ease-in 1s;
   pointer-events: none;
   padding-right: 20px;
-  animation: fade 1s ease-in 1s;
+  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 2s; /* Firefox < 16 */
+  -ms-animation: fadein 2s; /* Internet Explorer */
+  -o-animation: fadein 2s; /* Opera < 12.1 */
+  animation: fadein 2s;
   pointer-events: none;
 }
-.shape {
-  width: 500px;
-  height: 500px;
-  background-color: aqua;
-  transform: rotateX(45deg);
-  transition: all 3s ease;
-}
 
-@keyframes fade {
-  0% {
+@keyframes fadein {
+  from {
     opacity: 0;
   }
-  100% {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
     opacity: 1;
   }
 }
 
 @media (orientation: portrait) or (max-width: 1100px) {
+  .abg {
+    height: 200vh;
+  }
   .ab1,
   .ab2 {
-    font-size: 30px;
+    font-size: 28px;
   }
   .hori {
     gap: 5px;
