@@ -74,14 +74,14 @@ function StatForm() {
   };
 
   return (
-    <body class="bg">
+    <body class="sf-bg">
       <Header />
-      <body className="overall">
+      <div className="sf-overall">
         <div className="col">
           <div className="row">
             <button
-              className="sub"
-              onClick={(e) => {
+              className="sf-sub"
+              onClick={() => {
                 if (!auth.currentUser) {
                   alert("Sign in to log stats");
                 } else {
@@ -91,13 +91,8 @@ function StatForm() {
             >
               Submit
             </button>
-            <h1 className="title">Game</h1>
-            <button
-              className="reset"
-              onClick={(e) => {
-                clear();
-              }}
-            >
+            <h1 className="sf-title">Game</h1>
+            <button className="sf-reset" onClick={clear}>
               Reset
             </button>
           </div>
@@ -105,7 +100,7 @@ function StatForm() {
 
           <input
             placeholder="Points"
-            className="input-box"
+            className="sf-input-box"
             type="number"
             ref={p}
             onChange={handlePointChange}
@@ -114,7 +109,7 @@ function StatForm() {
           <br />
           <input
             placeholder="Rebounds"
-            className="input-box"
+            className="sf-input-box"
             type="number"
             ref={r}
             onChange={handleReboundChange}
@@ -122,7 +117,7 @@ function StatForm() {
           <br />
           <br />
           <input
-            className="input-box"
+            className="sf-input-box"
             placeholder="Assists"
             type="number"
             ref={a}
@@ -134,7 +129,7 @@ function StatForm() {
           <input
             placeholder="Steals"
             ref={s}
-            className="input-box"
+            className="sf-input-box"
             type="number"
             onChange={handleStealChange}
           />
@@ -144,7 +139,7 @@ function StatForm() {
           <input
             placeholder="Fouls"
             ref={f}
-            className="input-box"
+            className="sf-input-box"
             type="number"
             onChange={handleFoulChange}
           />
@@ -170,7 +165,7 @@ function StatForm() {
             placeholder="Opponent?"
             ref={o}
             type="text"
-            className="input-box"
+            className="sf-input-box"
             onChange={handleOpponentChange}
           />
           <br />
@@ -181,7 +176,7 @@ function StatForm() {
             placeholder=""
             type="date"
             ref={d}
-            className="input-box"
+            className="sf-input-box"
             onChange={handleDateChange}
           />
           <br />
@@ -205,7 +200,7 @@ function StatForm() {
           <br />
           <br />
         </div>
-      </body>
+      </div>
     </body>
   );
 

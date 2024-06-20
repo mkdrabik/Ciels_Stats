@@ -69,18 +69,13 @@ function Account() {
     }
   };
   return (
-    <body className="abg2">
+    <body className="acc-bg">
       <Header />
-      <body className="aoverall">
+      <div className="acc-ovrl">
         <br />
         <br />
         {!user && (
-          <button
-            className="si"
-            onClick={(e) => {
-              handleGoogle();
-            }}
-          >
+          <button className="acc-si" onClick={handleGoogle}>
             Gmail
           </button>
         )}
@@ -89,7 +84,7 @@ function Account() {
         {!user && (
           <span>
             <Link to="/su">
-              <button className="si">Email</button>
+              <button className="acc-si">Email</button>
             </Link>
           </span>
         )}
@@ -97,12 +92,7 @@ function Account() {
         <br />
         <br />
         {user && (
-          <button
-            className="so"
-            onClick={(e) => {
-              handleSo();
-            }}
-          >
+          <button className="acc-so" onClick={handleSo}>
             Sign Out
           </button>
         )}
@@ -115,7 +105,7 @@ function Account() {
           *Email is only used to ensure those wanting to view stats are not
           robots.
         </p>
-      </body>
+      </div>
     </body>
   );
 }

@@ -131,7 +131,7 @@ function Stats() {
   }
 
   return (
-    <body className="bg2">
+    <body className="statsbg">
       <>
         <Header />
         <br></br>
@@ -178,7 +178,7 @@ function Stats() {
           {useOpp && (
             <input
               placeholder="Team Name"
-              className="input-box2"
+              className="stats-ib"
               type="text"
               ref={opp}
               onChange={handleOppChange}
@@ -186,39 +186,24 @@ function Stats() {
           )}
           <input
             placeholder="# of Games"
-            className="input-box2"
+            className="stats-ib"
             type="number"
             ref={n}
             onChange={handleNumChange}
           />
         </div>
-        <div className="hori">
+        <div className="row-container">
           {showSB && (
-            <button
-              className="button2"
-              onClick={(e) => {
-                filled();
-              }}
-            >
+            <button className="stats-btn" onClick={filled}>
               Get Stats
             </button>
           )}
 
-          <button
-            className="button3"
-            onClick={(e) => {
-              clear();
-            }}
-          >
+          <button className="stats-btn" onClick={clear}>
             Clear Data
           </button>
 
-          <button
-            className="button3"
-            onClick={(e) => {
-              cf();
-            }}
-          >
+          <button className="stats-btn" onClick={cf}>
             Clear Form
           </button>
         </div>
@@ -311,6 +296,7 @@ function Stats() {
     setAVGs({});
   }
 
+  //clears the inputs
   function cf() {
     se.current.value = "";
     n.current.value = "";

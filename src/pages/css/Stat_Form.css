@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-.title {
+.sf-title {
   font-family: "Ysabeau SC";
   color: rgb(20, 20, 20);
   text-decoration-line: underline;
@@ -18,7 +18,7 @@
   border-radius: 0.25em;
 }
 
-.overall {
+.sf-overall {
   min-width: 100%;
   margin: 0px;
   padding: 0px;
@@ -28,7 +28,7 @@
   align-items: first baseline;
 }
 
-.bg {
+.sf-bg {
   background-color: rgb(56, 53, 53);
 }
 
@@ -58,7 +58,7 @@ input:focus {
   outline: 5px solid rgb(184, 209, 252);
 }
 
-.input-box {
+.sf-input-box {
   width: 300px;
   height: 50px;
   font-size: 30px;
@@ -113,24 +113,24 @@ button {
   color: hsl(0, 11%, 98%);
 }
 
-.sub {
+.sf-sub {
   background: rgb(42, 192, 65);
   border: 1px solid rgb(42, 192, 65);
 }
 
-.reset {
+.sf-reset {
   background: rgb(206, 52, 52);
   border: 1px solid rgb(206, 52, 52);
 }
 
-.sub:hover,
-.sub:focus-visible {
+.sf-sub:hover,
+.sf-sub:focus-visible {
   color: rgb(42, 192, 65);
   background: hsl(210, 8%, 95%);
 }
 
-.reset:hover,
-.reset:focus-visible {
+.sf-reset:hover,
+.sf-reset:focus-visible {
   color: rgb(206, 52, 52);
   background: hsl(210, 8%, 95%);
 }
@@ -145,7 +145,7 @@ li {
     font-size: 30px;
     height: 50px;
   }
-  .bg {
+  .sf-bg {
     width: 100vw;
   }
 
@@ -157,7 +157,7 @@ li {
     margin-right: 25px;
   }
 
-  .input-box {
+  .sf-input-box {
     font-size: 18px;
     font-weight: bold;
     width: 60%;

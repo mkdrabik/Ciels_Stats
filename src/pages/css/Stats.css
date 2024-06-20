@@ -4,10 +4,8 @@
   gap: 10px;
   padding: 1rem;
 }
-.body2 {
-  background-size: cover;
-}
-.bg2 {
+
+.statsbg {
   background-color: rgb(51, 53, 52);
   height: 200vh;
   width: 100vw;
@@ -59,14 +57,7 @@ form * {
   font-size: 28px;
 }
 
-.button2 {
-  color: rgb(184, 209, 252);
-  font-size: 24px;
-  background-color: white;
-  margin: 0;
-  border: 3px solid #000405;
-}
-.button3 {
+.stats-btn {
   color: rgb(184, 209, 252);
   font-size: 24px;
   background-color: white;
@@ -85,9 +76,6 @@ button:hover {
   gap: 10px;
   padding: 1rem;
 }
-input {
-  border: 3px solid #000405;
-}
 
 input:invalid {
   color: gray;
@@ -97,13 +85,14 @@ input:focus {
   outline: 5px solid rgb(184, 209, 252);
 }
 
-.input-box2 {
+.stats-ib {
   width: 300px;
   height: 50px;
   font-size: 30px;
   border-radius: 0.25em;
   padding: 0.25em 0.5em;
   color: hsl(202, 85%, 3%);
+  border: 3px solid #000405;
 }
 
 img {
@@ -111,10 +100,7 @@ img {
   width: 300px;
 }
 @media (max-width: 1350px) {
-  .button2 {
-    font-size: 18px;
-  }
-  .button3 {
+  .stats-btn {
     font-size: 18px;
   }
 }
@@ -143,23 +129,19 @@ img {
     font-weight: bold;
     width: 50%;
   }
-  .input-box2 {
+  .stats-ib {
     font-size: 18px;
     font-weight: bold;
     width: 50%;
     padding: 10px;
   }
 
-  .button2 {
+  .stats-btn {
     font-size: 16px;
     width: 100px;
     height: 50px;
   }
-  .button3 {
-    font-size: 16px;
-    width: 100px;
-    height: 50px;
-  }
+
   .row-container {
     display: flex;
     flex-direction: column;

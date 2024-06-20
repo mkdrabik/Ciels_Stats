@@ -85,23 +85,46 @@ function SignUp() {
   };
 
   return (
-    <body className="abg2">
+    <body className="acc-bg">
       <Header />
       <br />
       <br />
-
-      <div className="aoverall">
+      <div className="row">
+        {!user && (
+          <button
+            className="acc-si"
+            onClick={(e) => {
+              createNewUser();
+            }}
+          >
+            Sign Up
+          </button>
+        )}
+        {!user && (
+          <button
+            className="acc-si"
+            onClick={(e) => {
+              logUserIn();
+            }}
+          >
+            Sign In
+          </button>
+        )}
+      </div>
+      <br />
+      <br />
+      <div className="acc-ovrl">
         {user && (
           <span>
             <Link to="/stats">
-              <button className="si">TO STATS</button>
+              <button className="acc-si">TO STATS</button>
             </Link>
           </span>
         )}
         {!user && (
           <input
             placeholder="Email"
-            className="input-box"
+            className="su-input-box"
             type="text"
             ref={e}
             onChange={handleEmailChange}
@@ -109,11 +132,10 @@ function SignUp() {
         )}
         <br />
         <br />
-
         {!user && (
           <input
             placeholder="First Name"
-            className="input-box"
+            className="su-input-box"
             type="text"
             ref={fn}
             onChange={handleFNChange}
@@ -124,13 +146,13 @@ function SignUp() {
         {!user && (
           <input
             placeholder="Last Name"
-            className="input-box"
+            className="su-input-box"
             type="text"
             ref={ln}
             onChange={handleLNChange}
           />
         )}
-
+        <br />
         <p>
           *Email is only used to ensure those wanting to view stats are not
           robots.
@@ -140,29 +162,6 @@ function SignUp() {
           there are no extra spaces and the first letter is capital. If you
           still cannot get in email drabikmason12@gmail.com.
         </p>
-
-        {!user && (
-          <button
-            className="si2"
-            onClick={(e) => {
-              createNewUser();
-            }}
-          >
-            Sign Up
-          </button>
-        )}
-        <br />
-        <br />
-        {!user && (
-          <button
-            className="si2"
-            onClick={(e) => {
-              logUserIn();
-            }}
-          >
-            Sign In
-          </button>
-        )}
       </div>
     </body>
   );
