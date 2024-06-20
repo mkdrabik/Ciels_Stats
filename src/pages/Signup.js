@@ -20,6 +20,7 @@ function SignUp() {
   const ln = useRef("");
   const [user, setUser] = useState(false);
 
+  //checks to see if a user is logged in
   useEffect(() => {
     if (auth.currentUser === null) {
       setUser(false);
@@ -27,6 +28,8 @@ function SignUp() {
       setUser(true);
     }
   }, []);
+
+  //creates new user
   const createNewUser = async (e) => {
     try {
       await createUserWithEmailAndPassword(auth, email, firstName + LastName);
@@ -56,6 +59,7 @@ function SignUp() {
     }
   };
 
+  //logs user in
   const logUserIn = async (e) => {
     try {
       await signInWithEmailAndPassword(auth, email, firstName + LastName);
@@ -76,6 +80,7 @@ function SignUp() {
       }
     }
   };
+  //sets lcaol storage persistence
   const enablePersistence = async () => {
     try {
       await setPersistence(auth, browserLocalPersistence);
@@ -166,6 +171,7 @@ function SignUp() {
     </body>
   );
 
+  //handles input changes
   function handleEmailChange(e) {
     setEmail(e.target.value);
   }
@@ -175,6 +181,8 @@ function SignUp() {
   function handleLNChange(e) {
     setLN(e.target.value);
   }
+
+  //clears from
   function clear() {
     fn.current.value = "";
     ln.current.value = "";
