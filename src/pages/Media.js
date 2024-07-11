@@ -1,6 +1,5 @@
 import "./css/Account.css";
 import Header from "../components/Header";
-import "./imgs/c1.jpeg";
 
 function Media() {
   return (
@@ -21,7 +20,7 @@ function Media() {
           title="shot"
         ></iframe>
         <img src={require("./imgs/c1.jpeg")} alt="Logo" draggable="false" />
-        <img src={require("./imgs/c1.jpeg")} alt="Logo" draggable="false" />
+        <img src={require("./imgs/c2.jpeg")} alt="Logo" draggable="false" />
       </div>
       <h1 className="ab">AAU</h1>
       <div className="img-track">
