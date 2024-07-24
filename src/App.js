@@ -1,10 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import StatForm from "./pages/Stat_Form";
-import About from "./pages/About";
-import Stats from "./pages/Stats";
-import Media from "./pages/Media";
-import Account from "./pages/Account";
-import SignUp from "./pages/Signup";
+
+import StatForm from "./pages/screens/Stat_Form";
+import About from "./pages/screens/About";
+import Stats from "./pages/screens/Stats";
+import Media from "./pages/screens/Media";
+import Account from "./pages/screens/Account";
+import SignUp from "./pages/screens/Signup";
 
 function App() {
   return (

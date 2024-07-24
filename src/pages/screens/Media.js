@@ -1,5 +1,6 @@
-import "./css/Account.css";
-import Header from "../components/Header";
+import Header from "../../components/Header";
+
+import "../css/Account.css";
 
 function Media() {
   return (
@@ -19,14 +20,14 @@ function Media() {
           allowFullScreen="true"
           title="shot"
         ></iframe>
-        <img src={require("./imgs/c1.jpeg")} alt="Logo" draggable="false" />
-        <img src={require("./imgs/c2.jpeg")} alt="Logo" draggable="false" />
+        <img src={require("../imgs/c1.jpeg")} alt="Logo" draggable="false" />
+        <img src={require("../imgs/c2.jpeg")} alt="Logo" draggable="false" />
       </div>
       <h1 className="ab">AAU</h1>
       <div className="img-track">
-        <img src={require("./imgs/AAU1.jpeg")} alt="Logo" draggable="false" />
-        <img src={require("./imgs/AAU2.jpeg")} alt="Logo" draggable="false" />
-        <img src={require("./imgs/AAU3.jpeg")} alt="Logo" draggable="false" />
+        <img src={require("../imgs/AAU1.jpeg")} alt="Logo" draggable="false" />
+        <img src={require("../imgs/AAU2.jpeg")} alt="Logo" draggable="false" />
+        <img src={require("../imgs/AAU3.jpeg")} alt="Logo" draggable="false" />
       </div>
     </body>
   );

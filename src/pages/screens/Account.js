@@ -1,8 +1,6 @@
 import { React, useState, useEffect } from "react";
-import Header from "../components/Header";
-import { txtDB, auth } from "../pages/txtConfig";
+import { txtDB, auth } from "../txtConfig";
 import { doc, setDoc } from "firebase/firestore";
-import "./css/Account.css";
 import { Link } from "react-router-dom";
 import {
   signOut,
@@ -11,6 +9,10 @@ import {
   setPersistence,
   browserLocalPersistence,
 } from "firebase/auth";
+
+import Header from "../../components/Header";
+
+import "../css/Account.css";
 
 function Account() {
   const [user, setUser] = useState(false);

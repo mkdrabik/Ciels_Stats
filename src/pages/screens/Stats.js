@@ -1,7 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import "./css/Stats.css";
-import Header from "../components/Header";
-import { txtDB, auth } from "./txtConfig";
+import { txtDB, auth } from "../txtConfig";
 import {
   average,
   collection,
@@ -12,6 +10,10 @@ import {
   query,
   where,
 } from "firebase/firestore";
+
+import Header from "../../components/Header";
+
+import "../css/Stats.css";
 
 function Stats() {
   const [games, setGames] = useState(() => {

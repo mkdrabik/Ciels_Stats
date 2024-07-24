@@ -1,15 +1,17 @@
 import { useState, useRef, useEffect } from "react";
-import { auth, txtDB } from "./txtConfig";
+import { auth, txtDB } from "../txtConfig";
 import { doc, setDoc } from "firebase/firestore";
-import "./css/Account.css";
+import { Link } from "react-router-dom";
 import {
   createUserWithEmailAndPassword,
   setPersistence,
   browserLocalPersistence,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import Header from "../components/Header";
-import { Link } from "react-router-dom";
+
+import Header from "../../components/Header";
+
+import "../css/Account.css";
 
 function SignUp() {
   const [email, setEmail] = useState("");

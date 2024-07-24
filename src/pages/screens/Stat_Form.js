@@ -1,8 +1,10 @@
 import { useState, useEffect, useRef } from "react";
-import "./css/Stat_Form.css";
-import { txtDB, auth } from "./txtConfig";
+import { txtDB, auth } from "../txtConfig";
 import { doc, setDoc } from "firebase/firestore";
-import Header from "../components/Header";
+
+import Header from "../../components/Header";
+
+import "../css/Stat_Form.css";
 
 function StatForm() {
   const [game, setGame] = useState({
