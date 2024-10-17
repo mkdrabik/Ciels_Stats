@@ -2,8 +2,9 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
+const api = process.env.REACT_APP_API_KEY;
 const firebaseConfig = {
-  apiKey: "AIzaSyC5-lUpXpksP1lgBbGQUhlpXaRsUyRe7zs",
+  apiKey: api,
   authDomain: "ciel-s-stats.firebaseapp.com",
   projectId: "ciel-s-stats",
   storageBucket: "ciel-s-stats.appspot.com",
