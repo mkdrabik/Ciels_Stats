@@ -10,7 +10,7 @@ function Media() {
       <div className="img-track">
         <iframe
           src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fsarahzak32%2Fvideos%2F1678779583034580%2F&show_text=false&width=267&t=0"
-          width="267"
+          width="420"
           height="476"
           scrolling="no"
           style={{ float: "border:none;overflow:hidden" }}
